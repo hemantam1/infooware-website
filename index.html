@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infooware Solutions | Truth to Action</title>
+<meta name="description" content="Infooware operating software for healthcare, distribution, compliance, retail, finance, fleet, construction, property, learning and commerce across India, the Middle East, Africa and the US.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8FA; --surface:#FFFFFF; --soft:#EAF1F4; --ink:#183142; --ink-2:#5D6B78; --line:#D5DEE5;
+  --teal:#168C8C; --teal-ink:#0F6E6E; --gold:#B8924F; --gold-soft:#F3EADB;
+  --navy:#183142; --navy-2:#102433; --on-navy:#F5F8FA; --on-navy-2:#A9BAC6;
+  --down:#168C8C; --up:#B8924F;
+  --serif:"Fraunces", Georgia, "Times New Roman", serif;
+  --sans:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --r-lg:22px; --r-md:14px; --r-sm:9px;
+  --wrap:1180px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1B26; --surface:#132634; --soft:#18303F; --ink:#E6EDF1; --ink-2:#9FB2BF; --line:#24404F;
+    --teal:#2DB3B0; --teal-ink:#5FD0CD; --gold:#D3AF6E; --gold-soft:#2E2A1F;
+    --navy:#0A1822; --navy-2:#07131B; --down:#2DB3B0; --up:#D3AF6E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1B26; --surface:#132634; --soft:#18303F; --ink:#E6EDF1; --ink-2:#9FB2BF; --line:#24404F;
+  --teal:#2DB3B0; --teal-ink:#5FD0CD; --gold:#D3AF6E; --gold-soft:#2E2A1F;
+  --navy:#0A1822; --navy-2:#07131B; --down:#2DB3B0; --up:#D3AF6E;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+h2{font-size:clamp(1.65rem,3vw,2.4rem)}
+h3{font-size:1.28rem}
+h4{font-size:1.05rem;font-family:var(--sans);font-weight:700;letter-spacing:0}
+p{margin:0 0 1em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+.muted{color:var(--ink-2)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:.55em;font:600 .98rem/1 var(--sans);padding:.95em 1.35em;border-radius:999px;border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-gold{background:var(--gold);color:#1B1408}
+.btn-gold:hover{background:#C9A462}
+.btn-wa{background:#1FAF5A;color:#fff}
+.btn-wa:hover{background:#199A4E}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn-ghost:hover{background:rgba(127,127,127,.12)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-ink)}
+
+/* Header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--navy) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--on-navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr .wrap{display:flex;align-items:center;gap:18px;height:72px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--on-navy);margin-right:auto}
+.brand svg{width:42px;height:42px}
+.brand b{font:600 1.32rem/1 var(--serif);letter-spacing:.01em;display:block}
+.brand small{font-size:.72rem;color:var(--on-navy-2);display:block;margin-top:3px;letter-spacing:.02em}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a,.nav button{background:none;border:0;color:var(--on-navy);font:600 .93rem var(--sans);padding:10px 13px;border-radius:9px;cursor:pointer;text-decoration:none}
+.nav a:hover,.nav button:hover{background:rgba(255,255,255,.08)}
+.nav .btn-wa{padding:.72em 1.1em;margin-left:6px}
+.nav .btn-wa:hover{background:#199A4E}
+.theme-t{width:40px;height:40px;display:grid;place-items:center;padding:0!important}
+.theme-t svg{width:19px;height:19px}
+.burger{display:none;background:none;border:0;color:var(--on-navy);width:44px;height:44px;border-radius:10px;cursor:pointer}
+.burger svg{width:24px;height:24px}
+.mega{position:absolute;left:0;right:0;top:72px;background:var(--surface);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -24px rgba(16,36,51,.35);display:none;max-height:calc(100vh - 72px);overflow:auto}
+.mega.open{display:block}
+.mega .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding-top:26px;padding-bottom:30px;height:auto}
+.mega h4{color:var(--gold);margin-bottom:10px;font-size:.92rem}
+.mega a{display:flex;gap:10px;align-items:center;padding:8px 8px;margin:0 -8px;border-radius:9px;text-decoration:none;font-weight:600;font-size:.94rem}
+.mega a:hover{background:var(--soft)}
+.mega a svg{width:22px;height:22px;color:var(--teal);flex:none}
+@media (max-width:980px){
+  .nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 16px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav.open{display:flex}
+  .nav a,.nav button{text-align:left;padding:13px 12px}
+  .nav .btn-wa{justify-content:center;margin:8px 0 0}
+  .burger{display:grid;place-items:center}
+  .mega .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.mega .wrap{grid-template-columns:1fr}}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:74px;padding-bottom:84px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);font-weight:400;max-width:14ch}
+.hero p.lead{font-size:1.15rem;color:var(--on-navy-2);max-width:52ch;margin:22px 0 30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .ctas .btn-ghost{color:var(--on-navy)}
+.sun{position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center}
+.sun svg{width:100%;height:100%}
+.sun .rays{transform-origin:50% 50%;animation:turn 90s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.hero-in > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-in > *:nth-child(2){animation-delay:.12s}.hero-in > *:nth-child(3){animation-delay:.24s}.hero-in > *:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.facts{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);color:var(--on-navy-2);font-size:.93rem}
+.facts b{color:var(--on-navy);font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-right:6px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:48px;padding-bottom:56px}.sun{max-width:260px;grid-row:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Sections */
+section.s{padding:84px 0}
+section.s.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sh{max-width:720px;margin-bottom:40px}
+.sh p{color:var(--ink-2);font-size:1.07rem;margin-top:14px}
+.kick{display:inline-block;font-weight:700;font-size:.9rem;color:var(--teal-ink);margin-bottom:12px}
+@media (max-width:640px){section.s{padding:58px 0}}
+
+/* Family grid */
+.fam{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.fam > div{padding:26px 22px 20px;border-right:1px solid var(--line)}
+.fam > div:last-child{border-right:0}
+.fam h3{font-size:1.18rem;margin-bottom:6px}
+.fam .fd{color:var(--ink-2);font-size:.9rem;margin-bottom:16px;min-height:3em}
+.plink{display:flex;align-items:center;gap:12px;padding:12px 10px;margin:0 -10px;border-radius:12px;text-decoration:none}
+.plink:hover{background:var(--soft)}
+.plink .ic{width:40px;height:40px;border-radius:11px;background:var(--soft);display:grid;place-items:center;color:var(--teal);flex:none}
+.plink:hover .ic{background:var(--surface)}
+.plink .ic svg{width:22px;height:22px}
+.plink b{display:block;font-size:.97rem;line-height:1.25}
+.plink span{display:block;font-size:.8rem;color:var(--ink-2);line-height:1.35;margin-top:2px}
+@media (max-width:980px){.fam{grid-template-columns:1fr 1fr}.fam > div:nth-child(2){border-right:0}.fam > div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:600px){.fam{grid-template-columns:1fr}.fam > div{border-right:0;border-bottom:1px solid var(--line)}.fam > div:last-child{border-bottom:0}.fam .fd{min-height:0}}
+
+/* Steps (true sequences) */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:st;position:relative}
+.step{position:relative;padding:0 16px 0 0}
+.step .n{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:600 1.1rem var(--serif);background:var(--surface);border:2px solid var(--teal);color:var(--teal-ink);position:relative;z-index:1}
+.step::before{content:"";position:absolute;top:23px;left:46px;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--teal) 0 6px,transparent 6px 11px)}
+.step:last-child::before{display:none}
+.step h4{margin:16px 0 6px}
+.step p{font-size:.92rem;color:var(--ink-2);margin:0}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .step{padding:0 0 26px 64px}
+  .step .n{position:absolute;left:0;top:0}
+  .step::before{top:46px;bottom:0;left:22px;right:auto;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--teal) 0 6px,transparent 6px 11px)}
+  .step h4{margin-top:10px}
+}
+
+/* Portfolio chart */
+.pchart{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 26px 18px}
+.prow{display:grid;grid-template-columns:230px 1fr 64px;align-items:center;gap:14px;padding:7px 0;text-decoration:none}
+.prow:hover .pl{color:var(--teal-ink)}
+.pl{font-weight:600;font-size:.92rem;line-height:1.25}
+.pl small{display:block;font-weight:500;color:var(--ink-2);font-size:.78rem}
+.ptrack{height:12px;background:var(--soft);border-radius:999px;position:relative}
+.pband{position:absolute;top:0;bottom:0;border-radius:999px;background:color-mix(in srgb,var(--teal) 35%,transparent)}
+.pmid{position:absolute;top:-4px;width:20px;height:20px;border-radius:50%;background:var(--teal);border:3px solid var(--surface);transform:translateX(-50%)}
+.pv{font:600 1rem var(--serif);text-align:right}
+.paxis{display:grid;grid-template-columns:230px 1fr 64px;gap:14px;font-size:.75rem;color:var(--ink-2);margin-top:8px}
+.paxis div:nth-child(2){display:flex;justify-content:space-between}
+@media (max-width:700px){.prow,.paxis{grid-template-columns:1fr 56px}.pl{grid-column:1/-1;margin-bottom:-4px}.paxis div:first-child{display:none}}
+
+/* Layers */
+.layers{display:grid;gap:10px}
+.layer{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:20px;align-items:center;padding:18px 22px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.layer b{font-family:var(--serif);font-weight:500;font-size:1.15rem}
+.layer span{color:var(--ink-2);font-size:.95rem}
+.layer:nth-child(1){margin:0 0;border-left:6px solid var(--gold)}
+.layer:nth-child(2){margin:0 18px;border-left:6px solid var(--teal)}
+.layer:nth-child(3){margin:0 36px;border-left:6px solid var(--teal)}
+.layer:nth-child(4){margin:0 18px;border-left:6px solid var(--teal)}
+.layer:nth-child(5){margin:0 0;border-left:6px solid var(--navy);background:var(--soft)}
+@media (max-width:700px){.layer{grid-template-columns:1fr;gap:4px}.layer:nth-child(n){margin:0}}
+
+/* Regions */
+.regions{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.region{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;display:flex;flex-direction:column}
+.region h3{margin-bottom:6px}
+.region .rl{color:var(--ink-2);font-size:.93rem;margin-bottom:16px}
+.tier{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:.92rem}
+.tier b{font-weight:700}
+.tier span{text-align:right;font-weight:600;color:var(--teal-ink)}
+.plays{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--soft);color:var(--ink);text-decoration:none;line-height:1.3}
+a.chip:hover{background:var(--gold-soft)}
+.fine{font-size:.8rem;color:var(--ink-2);margin-top:16px}
+@media (max-width:900px){.regions{grid-template-columns:1fr}}
+
+/* Table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.93rem}
+th,td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--ink-2);font-size:.85rem;background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--serif);font-size:1.05rem;font-weight:500}
+.lvl{display:inline-flex;gap:3px}.lvl i{width:18px;height:6px;border-radius:3px;background:var(--line)}.lvl i.on{background:var(--gold)}
+
+/* CTA band */
+.band{background:var(--navy);color:var(--on-navy);border-radius:var(--r-lg);padding:46px;display:grid;grid-template-columns:1.3fr auto;gap:26px;align-items:center}
+.band p{color:var(--on-navy-2);margin:12px 0 0;max-width:56ch}
+.band .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.band .btn-ghost{color:var(--on-navy)}
+@media (max-width:800px){.band{grid-template-columns:1fr;padding:32px 24px}}
+
+/* Product header */
+.phead{background:var(--navy);color:var(--on-navy)}
+.phead .wrap{padding-top:36px;padding-bottom:0}
+.crumb{font-size:.86rem;color:var(--on-navy-2);margin-bottom:22px}
+.crumb a{color:var(--on-navy-2);text-decoration:none}.crumb a:hover{color:var(--on-navy)}
+.pgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;padding-bottom:40px}
+.ptitle{display:flex;gap:18px;align-items:flex-start}
+.ptitle .ic{width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--gold);flex:none}
+.ptitle .ic svg{width:32px;height:32px}
+.ptitle h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:400}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.meta .chip{background:rgba(255,255,255,.1);color:var(--on-navy)}
+.tagline{font-family:var(--serif);font-size:1.35rem;color:var(--gold);margin:24px 0 10px;line-height:1.3}
+.vp{color:var(--on-navy-2);font-size:1.06rem;max-width:58ch}
+.phead .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.phead .btn-ghost{color:var(--on-navy)}
+.kmini{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.km{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:18px}
+.km .v{font:500 1.75rem/1.05 var(--serif);display:flex;align-items:baseline;gap:6px}
+.km .v svg{width:18px;height:18px;align-self:center}
+.km .l{font-size:.86rem;color:var(--on-navy-2);margin-top:6px;line-height:1.35}
+.km .d{font-size:.74rem;color:var(--on-navy-2);opacity:.8}
+.kcap{font-size:.78rem;color:var(--on-navy-2);margin-top:12px}
+.tabs{display:flex;gap:6px;border-top:1px solid rgba(255,255,255,.1);overflow-x:auto}
+.tabs a{padding:16px 18px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--on-navy-2);border-bottom:3px solid transparent;white-space:nowrap}
+.tabs a.on{color:var(--on-navy);border-bottom-color:var(--gold)}
+.tabs a:hover{color:var(--on-navy)}
+@media (max-width:900px){.pgrid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:420px){.kmini{grid-template-columns:1fr}}
+
+/* Content boxes */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:860px){.two,.three{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px}
+.box h3{margin-bottom:12px}
+.box.problem{border-top:5px solid var(--gold)}
+.box.impact{border-top:5px solid var(--navy)}
+:root[data-theme="dark"] .box.impact{border-top-color:var(--ink-2)}
+.impacts{display:flex;flex-wrap:wrap;gap:8px}
+.impacts span{font-size:.88rem;font-weight:600;padding:7px 12px;border-radius:9px;background:var(--gold-soft);color:var(--ink)}
+.prospect{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;display:flex;gap:14px;align-items:flex-start}
+.prospect .av{width:44px;height:44px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font:600 1rem var(--serif);color:var(--teal-ink);flex:none}
+.prospect b{display:block;line-height:1.3}
+.prospect span{font-size:.86rem;color:var(--ink-2)}
+.adv{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.adv div{padding:22px 24px;display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line)}
+.adv div:nth-child(odd){border-right:1px solid var(--line)}
+.adv div:nth-last-child(-n+2){border-bottom:0}
+.adv svg{width:24px;height:24px;color:var(--teal);flex:none;margin-top:2px}
+.adv b{font-weight:600;line-height:1.4}
+@media (max-width:700px){.adv{grid-template-columns:1fr}.adv div:nth-child(odd){border-right:0}.adv div:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px}
+.kpi .kn{font-weight:700;font-size:.95rem;line-height:1.3;min-height:2.6em}
+.kpi .kr{font:500 1.9rem/1 var(--serif);margin:12px 0 4px;display:flex;align-items:center;gap:8px}
+.kpi .kr svg{width:20px;height:20px}
+.kpi .kd{font-size:.82rem;color:var(--ink-2)}
+.kbar{height:8px;background:var(--soft);border-radius:999px;margin-top:14px;position:relative}
+.kbar i{position:absolute;top:0;bottom:0;border-radius:999px}
+@media (max-width:900px){.kpis{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.kpis{grid-template-columns:1fr}}
+.dn{color:var(--down)}.upc{color:var(--up)}
+
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.calc .ci{padding:28px}
+.calc .co{padding:28px;background:var(--navy);color:var(--on-navy);display:flex;flex-direction:column}
+.formula{font-family:var(--serif);font-size:1.08rem;line-height:1.45;padding:16px 18px;border-radius:var(--r-sm);background:var(--gold-soft);margin:0 0 22px}
+.field{display:grid;grid-template-columns:1fr 160px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line)}
+.field label{font-size:.92rem;font-weight:600}
+.field .inp{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);overflow:hidden}
+.field .inp:focus-within{border-color:var(--teal)}
+.field input{width:100%;border:0;background:transparent;color:var(--ink);font:600 .98rem var(--sans);padding:9px 10px;text-align:right;min-width:0}
+.field input:focus{outline:none}
+.field .u{font-size:.82rem;color:var(--ink-2);padding:0 10px;white-space:nowrap}
+.cur{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.cur button{border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 .82rem var(--sans);padding:6px 12px;border-radius:999px;cursor:pointer}
+.cur button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.co .big{font:400 clamp(2.2rem,4vw,3rem)/1 var(--serif);margin:8px 0 4px;color:var(--gold)}
+.co .lbl{font-size:.88rem;color:var(--on-navy-2)}
+.co .yr{font:500 1.5rem var(--serif);margin-top:4px}
+.co .sep{height:1px;background:rgba(255,255,255,.12);margin:22px 0}
+.co .note{font-size:.8rem;color:var(--on-navy-2);margin-top:auto;padding-top:20px}
+@media (max-width:860px){.calc{grid-template-columns:1fr}.field{grid-template-columns:1fr 140px}}
+
+.pitch{position:relative;padding:34px 36px 30px 36px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.pitch svg.q{position:absolute;top:-18px;left:30px;width:40px;height:40px;color:var(--gold);background:var(--bg);padding:4px;border-radius:50%}
+.pitch p{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;margin:0}
+
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.path > div{padding:26px;border-right:1px solid var(--line);position:relative}
+.path > div:last-child{border-right:0}
+.path .stg{font:600 .85rem var(--sans);color:var(--teal-ink);margin-bottom:6px}
+.path h4{font:500 1.2rem var(--serif);margin-bottom:8px}
+.path p{font-size:.92rem;color:var(--ink-2);margin:0}
+.path .plays{margin-top:12px}
+@media (max-width:860px){.path{grid-template-columns:1fr}.path > div{border-right:0;border-bottom:1px solid var(--line)}.path > div:last-child{border-bottom:0}}
+
+.offer{display:grid;grid-template-columns:1.2fr .8fr;gap:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
+.offer .ol{background:var(--gold-soft);padding:32px}
+.offer .ol h3{font-size:1.6rem;margin:6px 0 12px}
+.offer .or{background:var(--surface);padding:28px}
+.offer .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+@media (max-width:860px){.offer{grid-template-columns:1fr}}
+
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pn a{display:block;padding:20px 22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);text-decoration:none}
+.pn a:hover{border-color:var(--teal)}
+.pn small{color:var(--ink-2);font-size:.82rem}
+.pn b{display:block;font:500 1.12rem var(--serif);margin-top:4px}
+.pn a:last-child{text-align:right}
+
+/* Proof page diagrams */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:f}
+.fnode{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 16px 18px}
+.fnode .fn{font:600 .8rem var(--sans);color:var(--teal-ink)}
+.fnode h4{font:500 1.15rem var(--serif);margin:6px 0 8px}
+.fnode p{font-size:.86rem;color:var(--ink-2);margin:0}
+.fnode .ag{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--teal-ink)}
+.fnode.hum{border-color:var(--gold)}
+.fnode.hum .ag{background:var(--gold-soft);color:var(--ink)}
+.fnode:not(:last-child)::after{content:"";position:absolute;right:-12px;top:50%;width:12px;height:2px;background:var(--teal)}
+.fnode:not(:last-child)::before{content:"";position:absolute;right:-13px;top:calc(50% - 4px);border:5px solid transparent;border-left-color:var(--teal);z-index:1;transform:translateX(9px)}
+.loop{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--ink-2);padding:10px 16px;border:1.5px dashed var(--teal);border-radius:999px;justify-content:center}
+.loop svg{width:18px;height:18px;color:var(--teal)}
+@media (max-width:900px){
+  .flow{grid-template-columns:1fr;gap:14px}
+  .fnode:not(:last-child)::after{right:auto;left:30px;top:auto;bottom:-14px;width:2px;height:14px}
+  .fnode:not(:last-child)::before{right:auto;left:26px;top:auto;bottom:-15px;border-left-color:transparent;border-top-color:var(--teal);transform:translateY(9px)}
+}
+.chartbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+.chartbox h3{margin-bottom:4px}
+.chartbox .cs{font-size:.88rem;color:var(--ink-2);margin-bottom:18px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.8rem;color:var(--ink-2);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+svg text{font-family:var(--sans)}
+
+.swas{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.swas .sl{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.swas .sl b{font:500 1.15rem var(--serif)}
+.swas .sl span{font-size:.82rem;color:var(--ink-2)}
+.swas .sr2{padding:18px 20px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.swas > :nth-last-child(-n+2){border-bottom:0}
+.swas .sl.l1{background:var(--gold-soft)}
+.swas .sl.l2{background:var(--soft)}
+.agent{border-radius:var(--r-sm);padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.agent b{font-size:.88rem;display:block;color:var(--teal-ink)}
+.agent span{font-size:.82rem;color:var(--ink-2);line-height:1.4;display:block;margin-top:4px}
+.swas .full{grid-column:1/-1}
+.swas .sr2.one{grid-template-columns:1fr}
+@media (max-width:860px){.swas{grid-template-columns:1fr}.swas .sl{border-bottom:0;padding-bottom:4px}.swas .sr2{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.swas .sr2{grid-template-columns:1fr}}
+
+.hub{position:relative;aspect-ratio:16/9;max-width:980px;margin:0 auto}
+.hub svg.lines{position:absolute;inset:0;width:100%;height:100%}
+.hub .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26%;aspect-ratio:1;border-radius:50%;background:var(--navy);color:var(--on-navy);display:grid;place-items:center;text-align:center;padding:14px;box-shadow:0 0 0 10px color-mix(in srgb,var(--teal) 18%,transparent)}
+.hub .core b{font:500 clamp(.85rem,1.6vw,1.15rem)/1.2 var(--serif)}
+.hub .core small{display:block;font-size:.72rem;color:var(--gold);margin-top:6px}
+.hub .node{position:absolute;transform:translate(-50%,-50%);background:var(--surface);border:1.5px solid var(--teal);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;text-align:center;max-width:24%;line-height:1.25}
+.hublist{display:none;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+@media (max-width:720px){.hub{aspect-ratio:auto;height:auto}.hub svg.lines,.hub .node{display:none}.hub .core{position:relative;left:auto;top:auto;transform:none;width:190px;margin:10px auto}.hublist{display:flex}}
+
+.gate{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.gate div{padding:18px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface)}
+.gate b{display:block;font:500 1.08rem var(--serif);margin-bottom:6px}
+.gate span{font-size:.88rem;color:var(--ink-2)}
+.gate div:nth-child(1){border-left:5px solid var(--teal)}
+.gate div:nth-child(2){border-left:5px solid var(--gold)}
+.gate div:nth-child(3){border-left:5px solid var(--ink-2)}
+@media (max-width:760px){.gate{grid-template-columns:1fr}}
+
+/* Contact */
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cform .full{grid-column:1/-1}
+.cform label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+.cform input,.cform select,.cform textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:500 1rem var(--sans)}
+.cform textarea{min-height:120px;resize:vertical}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--teal)}
+.reach{display:grid;gap:14px}
+.reach a{display:flex;gap:16px;align-items:center;padding:20px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface);text-decoration:none}
+.reach a:hover{border-color:var(--teal)}
+.reach .ri{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none}
+.reach .ri svg{width:24px;height:24px}
+.reach b{display:block}
+.reach span{font-size:.9rem;color:var(--ink-2)}
+@media (max-width:640px){.cform{grid-template-columns:1fr}}
+
+/* Footer */
+footer{background:var(--navy-2);color:var(--on-navy-2);padding:60px 0 110px;font-size:.92rem;margin-top:0}
+footer .fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer h4{color:var(--on-navy);margin-bottom:12px;font-size:.95rem}
+footer a{display:block;text-decoration:none;padding:4px 0;color:var(--on-navy-2)}
+footer a:hover{color:var(--on-navy)}
+footer .brand{margin-bottom:14px}
+footer .legal{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:.8rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (max-width:860px){footer .fg{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .fg{grid-template-columns:1fr}}
+
+/* Floating reach */
+.fab{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.fab a{display:flex;align-items:center;gap:10px;height:58px;border-radius:999px;text-decoration:none;box-shadow:0 12px 28px -10px rgba(0,0,0,.45);font-weight:700}
+.fab .wa{background:#1FAF5A;color:#fff;padding:0 20px 0 16px}
+.fab .wa svg{width:28px;height:28px}
+.fab .call{background:var(--surface);color:var(--ink);width:52px;height:52px;justify-content:center;border:1px solid var(--line)}
+.fab .call svg{width:22px;height:22px}
+.mbar{display:none}
+@media (max-width:700px){
+  .fab{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--navy);padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));gap:8px;border-top:1px solid rgba(255,255,255,.1)}
+  .mbar a{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--on-navy);text-decoration:none;font-size:.74rem;font-weight:600;padding:6px;border-radius:10px}
+  .mbar a svg{width:22px;height:22px}
+  .mbar a.w{background:#1FAF5A}
+}
+
+/* HTML charts */
+.rc{padding-bottom:26px;position:relative}
+.rcr{margin-bottom:16px}
+.rcl{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:.92rem;margin-bottom:7px}
+.rcl b{font:600 1rem var(--serif)}
+.rct{position:relative;height:14px;border-radius:999px;background:var(--soft);background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--g) - 1px),var(--line) calc(var(--g) - 1px) var(--g))}
+.rct i{position:absolute;top:0;bottom:0;border-radius:999px;opacity:.45}
+.rct s{position:absolute;top:-4px;width:22px;height:22px;border-radius:50%;transform:translateX(-50%);border:3px solid var(--surface)}
+.rca{position:relative;height:18px;font-size:.75rem;color:var(--ink-2)}
+.rca span{position:absolute;transform:translateX(-50%)}
+.rca span:first-child{transform:none}.rca span:last-child{transform:translateX(-100%)}
+.ic2{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;height:280px;padding-left:30px;padding-bottom:0}
+.icg{position:absolute;left:30px;right:0;top:0;height:200px;pointer-events:none}
+.icg span{position:absolute;left:0;right:0;border-top:1px dashed var(--line)}
+.icg em{position:absolute;left:-30px;top:-9px;font-style:normal;font-size:.72rem;color:var(--ink-2);width:24px;text-align:right}
+.icc{display:flex;flex-direction:column}
+.icb{height:200px;display:flex;align-items:flex-end;justify-content:center;gap:5px;border-bottom:2px solid var(--line)}
+.icb i{width:min(34%,34px);background:var(--line);border-radius:6px 6px 0 0;position:relative}
+.icb i.t{background:var(--teal)}
+.icb i em{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-style:normal;font-size:.78rem;font-weight:700;color:var(--teal-ink)}
+.icl{font-size:.8rem;color:var(--ink-2);text-align:center;margin-top:8px;line-height:1.3}
+.gt{margin-top:6px}
+.gtr{display:grid;grid-template-columns:190px 1fr;gap:16px;align-items:center;padding:8px 0}
+.gtl{font-weight:600;font-size:.94rem;line-height:1.25}
+.gtl small{display:block;font-weight:500;color:var(--ink-2);font-size:.78rem}
+.gtt{position:relative;height:24px;background:var(--soft);border-radius:7px}
+.gtt i{position:absolute;top:0;bottom:0;border-radius:7px;background:var(--teal)}
+.gta{display:grid;grid-template-columns:190px 1fr;gap:16px;font-size:.76rem;color:var(--ink-2);margin-top:6px}
+.gta > div:last-child{position:relative;height:18px}
+.gta span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.gta span:first-child{transform:none}.gta span:last-child{transform:translateX(-100%)}
+@media (max-width:600px){.gtr,.gta{grid-template-columns:1fr;gap:6px}.gta > div:first-child{display:none}.ic2{gap:6px}}
+.disc{font-size:.8rem;color:var(--ink-2);margin-top:14px}
+.gap{height:56px}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#/" aria-label="Infooware home">
+      <span id="logoHdr"></span>
+      <span><b>Infooware</b><small>Truth to Action</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <button id="solBtn" aria-expanded="false" aria-controls="mega">Solutions</button>
+      <a href="#/" data-sec="method">How pilots work</a>
+      <a href="#/" data-sec="regions">Regions</a>
+      <a href="#/" data-sec="partners">Partners</a>
+      <a href="#/contact">Contact</a>
+      <button class="theme-t" id="themeBtn" aria-label="Switch colour theme"></button>
+      <a class="btn btn-wa" href="#" data-wa="Hello Infooware, I would like to discuss a solution for my business." target="_blank" rel="noopener"><span class="waI"></span>WhatsApp us</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="mega" id="mega"><div class="wrap" id="megaIn"></div></div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a class="brand" href="#/"><span id="logoFtr"></span><span><b>Infooware</b><small>Truth to Action</small></span></a>
+        <p>Operating software, agentic AI and named experts for teams in India, the Middle East, Africa and the United States. Headquartered in Ahmedabad, India.</p>
+      </div>
+      <div id="ft1"></div>
+      <div id="ft2"></div>
+      <div>
+        <h4>Talk to us</h4>
+        <a href="#" data-wa="Hello Infooware, I would like to discuss a solution for my business." target="_blank" rel="noopener">WhatsApp +91 63596 93055</a>
+        <a href="tel:+916359693055">Call +91 63596 93055</a>
+        <a href="#/contact">Send an enquiry</a>
+        <a href="#/" data-sec="partners">Become a partner</a>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Infooware. All rights reserved.</span><span>KPI figures are illustrative pilot targets, confirmed against each customer's own baseline.</span></div>
+  </div>
+</footer>
+
+<div class="fab" aria-label="Quick contact">
+  <a class="call" href="tel:+916359693055" aria-label="Call Infooware"><span class="phI"></span></a>
+  <a class="wa" href="#" data-wa="Hello Infooware, I would like to discuss a solution for my business." target="_blank" rel="noopener" aria-label="Chat with Infooware on WhatsApp"><span class="waI"></span>Chat with us</a>
+</div>
+<nav class="mbar" aria-label="Quick contact">
+  <a href="tel:+916359693055"><span class="phI"></span>Call</a>
+  <a class="w" href="#" data-wa="Hello Infooware, I would like to discuss a solution for my business." target="_blank" rel="noopener"><span class="waI"></span>WhatsApp</a>
+  <a href="#/contact"><span class="mlI"></span>Enquire</a>
+</nav>
+
+<script>
+(function(){
+"use strict";
+const PHONE="916359693055";
+const wa=t=>"https://wa.me/"+PHONE+"?text="+encodeURIComponent(t);
+
+/* ---------- Icons ---------- */
+const S=(d,sw)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw||1.7}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const IC={
+ health:S('<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M8.5 11.5h2l1-2 1.5 4 1-2h1.5"/>'),
+ territory:S('<path d="M9 4 3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>'),
+ audit:S('<path d="M12 3 5 6v5c0 4.5 3 8.2 7 10 4-1.8 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/>'),
+ chat:S('<path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4A8 8 0 1 1 20 12z"/><path d="M9 11h6M9 14h4"/>'),
+ pipeline:S('<path d="M3 5h18l-6 7v6l-6 2v-8z"/>'),
+ agri:S('<path d="M12 21V10"/><path d="M12 10c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6zM12 14c0-3-2.2-5-5-5 0 3 2.2 5 5 5z"/><path d="M6 21h12"/>'),
+ market:S('<path d="M4 9h16l-1.2-4.5H5.2z"/><path d="M5 9v10h14V9"/><path d="M10 19v-5h4v5"/><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"/>'),
+ pos:S('<rect x="4" y="3" width="16" height="11" rx="2"/><path d="M8 18h8M12 14v4M7 21h10"/><path d="M8 7h5M8 10h8"/>'),
+ payroll:S('<circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M17 7v8M15 9h3a1.5 1.5 0 0 1 0 3h-2a1.5 1.5 0 0 0 0 3h3"/>'),
+ finance:S('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'),
+ fleet:S('<path d="M3 16V7h11v9M14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>'),
+ build:S('<path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><path d="M2 9l10-6 10 6"/>'),
+ property:S('<path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-7h6v7M9 10h.01M15 10h.01"/>'),
+ learn:S('<path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3.5 2.5 8.5 2.5 12 0v-5M22 9v6"/>'),
+ ecom:S('<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.2 11h11l2-8H6.5"/>'),
+ check:S('<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/>',1.8),
+ down:S('<path d="M12 5v14M6 13l6 6 6-6"/>',2.2),
+ up:S('<path d="M12 19V5M6 11l6-6 6 6"/>',2.2),
+ loop:S('<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/>',1.9),
+ quote:'<svg class="q" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.5 7.2 5 9.7 5 13v5h5v-5H7.5c0-1.8.8-3.2 2.7-4.1zM18.5 6c-3 1.2-4.5 3.7-4.5 7v5h5v-5h-2.5c0-1.8.8-3.2 2.7-4.1z"/></svg>',
+ sun:S('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'),
+ moon:S('<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>'),
+ phone:S('<path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/>',1.9),
+ mail:S('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'),
+ wa:'<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.3 1.4 3.5 2.4 3.7 5.9 5.2c2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.3-.6-.4z"/></svg>'
+};
+function logo(){return `<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#F5F8FA" stroke-width="1.6" stroke-linecap="round" opacity=".85">${Array.from({length:36},(_,i)=>{const a=i*10*Math.PI/180,r1=26.5,r2=i%2?29.5:31;return `<line x1="${32+r1*Math.cos(a)}" y1="${32+r1*Math.sin(a)}" x2="${32+r2*Math.cos(a)}" y2="${32+r2*Math.sin(a)}"/>`}).join("")}</g><circle cx="32" cy="32" r="24" fill="#FFFFFF"/><path d="M32 17.5c3.6 4 4.4 7.6 0 12.8-4.4-5.2-3.6-8.8 0-12.8z" fill="none" stroke="#168C8C" stroke-width="2"/><circle cx="32" cy="24.6" r="1.7" fill="#168C8C"/><path d="M17 31.5c6 .4 10.6 3 14 9.5M47 31.5c-6 .4-10.6 3-14 9.5" fill="none" stroke="#168C8C" stroke-width="2.3" stroke-linecap="round"/></svg>`}
+
+/* ---------- Data ---------- */
+const FAM={
+ rev:{t:"Revenue and distribution",d:"Coverage, conversion, repeat orders and collections."},
+ trust:{t:"Trust and control",d:"Evidence, closure, reconciliation and audit readiness."},
+ ops:{t:"Industry operations",d:"Care, fleets, projects and properties run on one record."},
+ cap:{t:"Capability and finance",d:"Workforce readiness and faster, clearer cash decisions."}
+};
+const REG={
+ India:{name:"India",tiers:[["Diagnostic","Free or nominal"],["Pilot","₹15,000–₹75,000"],["Growth","₹10,000–₹75,000 / month"],["Enterprise","Custom annual contract"]]},
+ ME:{name:"Middle East",tiers:[["Discovery","USD 500–2,500"],["Pilot","USD 2,000–10,000"],["Growth","USD 1,000–6,000 / month"],["Enterprise","Custom annual contract"]]},
+ Africa:{name:"Africa",tiers:[["Diagnostic","Free or low cost"],["Pilot","USD 500–5,000"],["Growth","USD 300–4,000 / month"],["Enterprise","Custom annual contract"]]},
+ US:{name:"United States",tiers:[["Discovery","Scoped per account"],["Pilot","Fixed-scope, quoted"],["Growth","Usage and outcome based"],["Enterprise","Custom annual contract"]]}
+};
+const K=(n,r,m)=>({n,r,m,dir:/reduction/.test(r)?"down":"up",lo:+r.split(/[–-]/)[0],hi:parseFloat(r.split(/[–-]/)[1])});
+const $m="m",$p="%",$n="n";
+const P=[
+{slug:"healthcare",name:"Healthcare Engagement & Intelligence OS",short:"Healthcare Intelligence",sector:"Healthcare",regions:["India","UAE"],reg:["India","ME"],fam:"ops",icon:"health",
+ tag:"Fewer missed follow-ups and clearer next actions",
+ value:"Connect EHR and appointment data, WhatsApp care journeys, risk tags and doctor-ready summaries so each patient receives the right next action with human approval.",
+ prospects:["Doctor / Medical Director","Clinic Owner / COO","Hospital CIO / IT Head"],
+ problem:"Patient information, appointments and follow-ups sit in separate systems and personal WhatsApp threads. Teams cannot see overdue care, no-shows or patients likely to disengage.",
+ impact:["Lost repeat visits","Delayed care","Front-desk effort","Inconsistent patient experience","Clinical and revenue risk"],
+ why:["Coexists with the existing HIS/EHR","Workflow-first design around the daily clinic job","Multilingual WhatsApp care journeys","AI and RAG with human approval"],
+ kpis:[K("No-show rate","10–20% reduction",15),K("Follow-up completion","15–30% improvement",23),K("Manual reminder time","20–40% reduction",30),K("Repeat visits","5–15% improvement",10)],
+ formula:"Recovered value = appointments × current no-show rate × average visit contribution × improvement rate",
+ calc:{i:[["Appointments per month",2000,$n],["Current no-show rate",18,$p],["Average visit contribution",1500,$m],["Improvement rate",15,$p]],f:v=>v[0]*v[1]/100*v[2]*v[3]/100,out:"Recovered visit value"},
+ pitch:"Infooware makes the patient funnel visible, from enquiry and appointment to treatment and recall, then automates the repetitive steps. Management sees which patients are overdue, which campaigns work and where staff attention changes outcomes.",
+ pilot:"30-day Patient Follow-up & Clinic Growth pilot",pilotScope:"One specialty or location.",days:30,
+ steps:[["Patient data","EHR, appointments and reports"],["Risk and gaps","Overdue care and no-show signals"],["Next action","Task, message or doctor review"],["Human approval","Clinical judgment stays with the team"],["Measured outcome","Visit, response and follow-up result"]],
+ integ:["HIS / EHR","Lab and radiology","WhatsApp","Payments","Google / Outlook","HL7 / FHIR / API / CSV"],
+ rel:["whatsapp-crm","skill-lms","accounting-finance"]},
+{slug:"territory-revenue",name:"Territory Revenue OS",short:"Territory Revenue OS",sector:"Distribution",regions:["India","Africa","Middle East"],reg:["India","Africa","ME"],fam:"rev",icon:"territory",
+ tag:"Coverage data that leads to revenue action",
+ value:"Give reps an offline-first daily workflow and managers a live operating picture of beats, visits, orders, stock, merchandising and exceptions.",
+ prospects:["Sales Director / National Sales Head","Distributor Owner / COO","ERP / IT Head"],
+ problem:"Plans exist, but actual outlet coverage, productive calls, merchandising and secondary orders are not visible reliably, especially when field connectivity is weak.",
+ impact:["Missed outlets","Low sales productivity","Idle time","Lost secondary sales","Poor scheme execution","Decisions on delayed reports"],
+ why:["Offline-first mobile operation","A field-execution layer that complements your ERP","Configurable models for FMCG, pharma, beauty, agri-input and telecom","Manager cockpit that turns exceptions into same-day action"],
+ kpis:[K("Outlet coverage","10–20% improvement",15),K("Productive calls","10–25% improvement",18),K("Order value","5–12% improvement",9),K("Idle time","10–20% reduction",15)],
+ formula:"Revenue opportunity = missed high-potential outlets × expected visit conversion × average order value",
+ calc:{i:[["Missed high-potential outlets per month",400,$n],["Expected visit conversion",35,$p],["Average order value",4000,$m]],f:v=>v[0]*v[1]/100*v[2],out:"Revenue opportunity recovered"},
+ pitch:"Infooware gives one operational view across territories while reps continue working offline. Orders, collections, merchandising and exceptions sync into a manager cockpit so issues are acted on the same day.",
+ pilot:"30-day Beat Efficiency & Retailer Growth pilot",pilotScope:"One region and up to 15 reps.",days:30,
+ steps:[["Plan","Territory, beat and priority outlets"],["Execute offline","Visit, order, survey and evidence"],["Synchronize","Controlled queue and ERP references"],["Detect gaps","Missed outlets and reorder opportunities"],["Manager action","Coach, reroute or follow up"]],
+ integ:["ERP / Odoo / SAP","Maps and GPS","WhatsApp retailer ordering","BI","Product, stock and price masters"],
+ rel:["crm-pipeline","whatsapp-crm","fleet"]},
+{slug:"compliance-audit",name:"Compliance, Audit & Traceability OS",short:"Audit and Traceability OS",sector:"Compliance & Supply Chain",regions:["Africa","Middle East","US","India"],reg:["Africa","ME","US","India"],fam:"trust",icon:"audit",
+ tag:"From completed inspections to verified risk closure",
+ value:"Digitize inspection, evidence, risk, CAPA and verification, then connect products and batches to source records through QR traceability and governed knowledge.",
+ prospects:["Chief Compliance / Quality Officer","Audit Firm Owner / Operations Head","Buyer / Regulator / Supply-chain Head"],
+ problem:"Audit evidence is scattered, corrective actions remain open and management cannot distinguish routine backlog from material risk or prove source claims end to end.",
+ impact:["Repeat findings","Delayed certification","Operational incidents","Weak regulator and buyer confidence","High report-preparation effort"],
+ why:["One platform from inspection to verified closure and source truth","Configurable risk matrices","Offline evidence capture","Immutable audit trail"],
+ kpis:[K("Closure cycle","20–40% reduction",30),K("Overdue findings","25–50% reduction",38),K("Report preparation","30–50% reduction",40),K("Evidence completeness","15–30% improvement",23)],
+ formula:"Risk exposure value = overdue high-risk actions × estimated incident or delay cost × probability adjustment",
+ calc:{i:[["Overdue high-risk actions",40,$n],["Estimated incident or delay cost",250000,$m],["Probability adjustment",20,$p],["Overdue reduction targeted",38,$p]],f:v=>v[0]*v[1]*v[2]/100*v[3]/100,out:"Risk exposure removed"},
+ pitch:"Infooware standardizes templates and risk logic while preserving professional judgment. Mobile evidence flows into review, CAPA and client dashboards, reducing report assembly and creating recurring post-audit visibility.",
+ pilot:"30–45 day Audit Backlog & Closure pilot",pilotScope:"One program or site.",days:45,
+ steps:[["Inspect","Checklist, evidence and observation"],["Assess risk","Severity, recurrence and confidence"],["Assign action","Owner, date and required evidence"],["Verify closure","Reviewer checks evidence"],["Prove trust","Dashboard, certificate and trace chain"]],
+ integ:["Document repositories","ERP","Identity / SSO","IoT and QR","Government portals","BI"],
+ rel:["agriculture","payroll-hrms","construction"]},
+{slug:"whatsapp-crm",name:"WhatsApp CRM & Conversational Commerce",short:"WhatsApp CRM",sector:"Customer Engagement",regions:["India","UAE","Africa"],reg:["India","ME","Africa"],fam:"rev",icon:"chat",
+ tag:"Customer conversations become owned outcomes",
+ value:"Turn WhatsApp into a governed multi-user sales, service and commerce channel with automation, CRM context, analytics and human escalation.",
+ prospects:["Marketing Head / Growth Lead","Sales / Service Head","Owner / Founder of SME"],
+ problem:"Customer conversations are distributed across personal phones, enquiries have no owner, campaigns lack outcome attribution and routine service consumes staff time.",
+ impact:["Slow response","Lost leads","Inconsistent support","Compliance and opt-in risk","Low campaign conversion","No customer history"],
+ why:["Industry-ready flows","CRM and commerce integration","AI and RAG answers with escalation","Multilingual journeys"],
+ kpis:[K("First response time","40–70% reduction",55),K("Unowned chats","50–80% reduction",65),K("Lead conversion","5–15% improvement",10),K("Manual handling","20–40% reduction",30)],
+ formula:"Incremental gross value = qualified conversations × conversion uplift × average contribution per sale",
+ calc:{i:[["Qualified conversations per month",3000,$n],["Current conversion rate",8,$p],["Conversion uplift (relative)",10,$p],["Average contribution per sale",2500,$m]],f:v=>v[0]*v[1]/100*v[2]/100*v[3],out:"Incremental gross value"},
+ pitch:"Infooware routes conversations by intent, customer, location or workload. Agents work from one inbox with context, tasks and escalation, while managers see SLA, backlog and outcomes.",
+ pilot:"21–30 day WhatsApp Lead Conversion pilot",pilotScope:"One number and one real campaign.",days:30,
+ steps:[["Acquire","Ad, QR, website or referral"],["Understand intent","Flow or AI-assisted triage"],["Assign owner","Team, location or skill routing"],["Complete action","Booking, order, payment or case"],["Measure","Response, conversion and resolution"]],
+ integ:["Meta WhatsApp Business API","Shopify / WooCommerce","Website forms","Payments","CRM / EHR / ERP","OpenAI / RAG"],
+ rel:["crm-pipeline","healthcare","hyperlocal-marketplace"]},
+{slug:"crm-pipeline",name:"CRM & Sales Pipeline",short:"CRM and Sales Pipeline",sector:"Sales Operations",regions:["India","Middle East","Africa"],reg:["India","ME","Africa"],fam:"rev",icon:"pipeline",
+ tag:"A visible pipeline with reliable next actions",
+ value:"A lean web and mobile CRM with configurable stages, tasks, field activity and management visibility, without a heavyweight implementation.",
+ prospects:["Founder / Managing Director","Sales Head / Revenue Operations","Sales Representatives / Field Team"],
+ problem:"Leads enter through websites, referrals, calls and WhatsApp, but ownership, next action and forecast discipline are inconsistent.",
+ impact:["Leads leak","Longer sales cycles","Founders chase updates","Inaccurate forecasts","Poor marketing-to-sales handover"],
+ why:["Fast configurable deployment","Mobile and field support","WhatsApp-native engagement","Coexists with existing accounting and ERP"],
+ kpis:[K("Lead response time","30–60% reduction",45),K("Follow-up completion","20–40% improvement",30),K("Stage conversion","5–12% improvement",9),K("Sales cycle","10–20% reduction",15)],
+ formula:"Pipeline value recovered = qualified leads × conversion improvement × average contribution per win",
+ calc:{i:[["Qualified leads per month",500,$n],["Current win rate",12,$p],["Conversion improvement (relative)",9,$p],["Average contribution per win",25000,$m]],f:v=>v[0]*v[1]/100*v[2]/100*v[3],out:"Pipeline value recovered"},
+ pitch:"Infooware standardizes qualification and next-action discipline, then exposes conversion, aging and activity patterns by rep, source and segment for targeted coaching.",
+ pilot:"30-day Lead Leakage & Pipeline Discipline pilot",pilotScope:"One sales team.",days:30,
+ steps:[["Capture","Website, WhatsApp, call or referral"],["Qualify","Need, fit, value and timing"],["Plan next action","Task, meeting or quotation"],["Coach and progress","Stage aging and manager review"],["Close and learn","Win, loss reason and nurture"]],
+ integ:["Website / WordPress","Email","Gmail / Outlook","WhatsApp","Accounting / ERP","Power BI"],
+ rel:["whatsapp-crm","territory-revenue","accounting-finance"]},
+{slug:"agriculture",name:"Agriculture Production & Traceability Platform",short:"Agriculture Traceability",sector:"Agriculture",regions:["India","Africa","Middle East"],reg:["India","Africa","ME"],fam:"trust",icon:"agri",
+ tag:"Farm evidence that improves production confidence",
+ value:"A field-to-buyer operating record covering farms, crops, practices, inspections, forecasts, procurement and QR batches, accessible through mobile and WhatsApp.",
+ prospects:["FPO / Producer Organization CEO","Food Brand / Buyer / Procurement Head","Government / NGO Program Director"],
+ problem:"Farm, practice, input, inspection, production and procurement records are fragmented; yield and source claims cannot be verified consistently.",
+ impact:["Procurement uncertainty","Rejected lots","Compliance risk","Weak buyer trust","Limited premium access","Poor program reporting"],
+ why:["Offline and online field capture","Farmer-friendly WhatsApp","GIS, weather and AI models","Configurable evidence and traceability confidence"],
+ kpis:[K("Evidence completeness","20–40% improvement",30),K("Forecast error","10–25% reduction",18),K("Rejected lots","10–20% reduction",15),K("Traceable volume","20–50% improvement",35)],
+ formula:"Avoided loss = procured volume × current rejection rate × average lot value × improvement rate",
+ calc:{i:[["Procured volume per season (tonnes)",2000,$n],["Current rejection rate",8,$p],["Average value per tonne",30000,$m],["Improvement rate",15,$p]],f:v=>v[0]*v[1]/100*v[2]*v[3]/100,out:"Avoided rejection loss",period:"season"},
+ pitch:"Infooware connects procurement to source evidence and batch movement. Buyers see supply confidence, quality exceptions and traceability completeness early enough to act or redirect sourcing.",
+ pilot:"45-day Farm-to-Batch Traceability pilot",pilotScope:"One crop cluster.",days:45,
+ steps:[["Register source","Farmer, plot and crop"],["Record practice","Activity, input and advisory"],["Inspect","Evidence, risk and corrective action"],["Procure and test","Lot, weight and quality"],["Trace batch","QR history and buyer confidence"]],
+ integ:["GIS / PostGIS","Weather","Sensors","WhatsApp","QR","Weighing and procurement","ERP","Government portals"],
+ rel:["compliance-audit","hyperlocal-marketplace","territory-revenue"]},
+{slug:"hyperlocal-marketplace",name:"Hyperlocal Digital Marketplace",short:"Hyperlocal Marketplace",sector:"Marketplace",regions:["Middle East","India","Africa"],reg:["ME","India","Africa"],fam:"rev",icon:"market",
+ tag:"A zone-first marketplace with practical unit economics",
+ value:"Launch a multi-vendor hyperlocal marketplace with customer and vendor apps, WhatsApp interfaces, geo-discovery, payments, commissions and delivery coordination.",
+ prospects:["Marketplace Sponsor / City or Community Operator","Anchor Supplier / Distributor","Local Vendor / Merchant Network"],
+ problem:"Local vendors, suppliers and customers are digitally disconnected; discovery, availability, ordering and fulfilment happen through fragmented calls and chats.",
+ impact:["Low vendor reach","High coordination cost","Weak order visibility","Failed fulfilment","Hard to reach marketplace density"],
+ why:["Mobile app plus WhatsApp for every participant","Zone-by-zone launch","Configurable B2B and B2C models","Integration-ready architecture"],
+ kpis:[K("Vendor activation","15–30% improvement",23),K("Order conversion","5–12% improvement",9),K("Fulfilment success","10–20% improvement",15),K("Repeat orders","10–25% improvement",18)],
+ formula:"Zone contribution = orders × average order value × take rate − fulfilment and support cost",
+ calc:{i:[["Orders per month in the zone",5000,$n],["Average order value",600,$m],["Take rate",12,$p],["Fulfilment and support cost per order",30,$m]],f:v=>v[0]*v[1]*v[2]/100-v[0]*v[3],out:"Zone contribution"},
+ pitch:"Infooware publishes controlled catalogues, availability and schemes to vendors and customers, captures orders digitally and gives the supplier visibility into demand and fulfilment.",
+ pilot:"City or zone launch blueprint, then a 60–90 day MVP pilot",pilotScope:"Paid blueprint for one zone, followed by the MVP.",days:90,
+ steps:[["Build supply","Anchor supplier and vendors"],["Publish availability","Catalogue, price and service area"],["Create demand","Community and WhatsApp acquisition"],["Fulfil","Accept, deliver and resolve"],["Scale zone","Repeat rate and contribution margin"]],
+ integ:["Maps","Payments","Logistics","WhatsApp","ERP / POS","Identity","Analytics"],
+ rel:["whatsapp-crm","ecommerce-intelligence","territory-revenue"]},
+{slug:"retail-pos",name:"Retail POS & Warehouse OS",short:"Retail POS and Warehouse",sector:"Retail",regions:["South Africa","Africa"],reg:["Africa"],fam:"trust",icon:"pos",
+ tag:"Offline trading with controlled central reconciliation",
+ value:"Keep stores operational offline with local databases, then synchronize controlled prices, inventory and transactions to central warehouse and head-office systems.",
+ prospects:["Retail Owner / COO","Store Operations Head","CFO / Retail IT Head"],
+ problem:"Stores must trade through unreliable connectivity while head office needs central control of prices, stock, approvals and reconciliation.",
+ impact:["Checkout downtime","Stale prices","Stock variance","Duplicate sync","Uncontrolled negative stock","Delayed financial visibility"],
+ why:["Offline is the primary operating mode, not an exception","Idempotent synchronization","Configurable supervisor overrides","Store-day reconciliation"],
+ kpis:[K("Checkout downtime","50–80% reduction",65),K("Reconciliation time","30–60% reduction",45),K("Stock variance","10–25% reduction",18),K("Sync exceptions","25–50% reduction",38)],
+ formula:"Protected sales = outage hours × average sales per hour × prevented downtime rate",
+ calc:{i:[["Outage hours per month (all stores)",20,$n],["Average sales per hour",15000,$m],["Prevented downtime rate",65,$p]],f:v=>v[0]*v[1]*v[2]/100,out:"Protected sales"},
+ pitch:"Cashiers get a fast local workflow, supervisors approve configured exceptions, and every action syncs with user, terminal and timestamp evidence for review.",
+ pilot:"30–45 day Offline Store Reconciliation shadow pilot",pilotScope:"One store.",days:45,
+ steps:[["Central update","SKU, price, promotion and policy"],["Local operation","Sale, return and override offline"],["Queue safely","Terminal sequence and identity"],["Synchronize","Retry and duplicate prevention"],["Reconcile","Store day, stock and finance totals"]],
+ integ:["Payments","Barcode and scales","Accounting","Ecommerce","Biometric","Central ERP / database"],
+ rel:["accounting-finance","payroll-hrms","ecommerce-intelligence"]},
+{slug:"payroll-hrms",name:"Payroll, HRMS & Document Control",short:"Payroll and HRMS",sector:"Workforce",regions:["South Africa","Middle East"],reg:["Africa","ME","India"],fam:"trust",icon:"payroll",
+ tag:"Payroll exceptions surface before employees feel them",
+ value:"One auditable employee record from attendance and approvals through payroll, payslip, settlement and the document lifecycle.",
+ prospects:["HR Director","Payroll / Finance Head","Compliance / Internal Audit"],
+ problem:"Attendance, policies, leave, payroll inputs and employee documents are disconnected, causing late exceptions and weak audit evidence.",
+ impact:["Payroll errors","Employee disputes","Compliance exposure","Manual checking","Late settlements","Missed document expiry"],
+ why:["Configurable policy and rule engine","Shadow-run adoption before go-live","Multi-branch and multi-company","Evidence and approval trail"],
+ kpis:[K("Preparation time","25–50% reduction",38),K("Early exception detection","30–60% improvement",45),K("Post-payroll corrections","20–50% reduction",35),K("Expiry incidents","30–70% reduction",50)],
+ formula:"Administrative saving = hours removed per cycle × loaded hourly cost + avoided correction cost",
+ calc:{i:[["Hours removed per payroll cycle",60,$n],["Loaded hourly cost",450,$m],["Avoided correction cost per cycle",20000,$m]],f:v=>v[0]*v[1]+v[2],out:"Administrative saving per cycle"},
+ pitch:"Infooware applies configured rules, keeps maker-checker approvals and produces variance, bank and journal reconciliation before release.",
+ pilot:"One-cycle Payroll Readiness Shadow Run",pilotScope:"One entity, run alongside your current payroll.",days:30,
+ steps:[["Collect inputs","Employee, attendance, leave and changes"],["Detect exceptions","Missing or conflicting records"],["Approve","Manager and payroll review"],["Calculate and reconcile","Gross to net, bank and journal"],["Release and retain","Payslip, settlement and audit evidence"]],
+ integ:["Biometric devices","Banking / Netcash","Accounting","Email","Identity","Document repository"],
+ rel:["accounting-finance","construction","retail-pos"]},
+{slug:"accounting-finance",name:"Accounting & Business Finance",short:"Accounting and Finance",sector:"Finance",regions:["South Africa","India"],reg:["Africa","India"],fam:"cap",icon:"finance",
+ tag:"Faster reconciliation and clearer cash decisions",
+ value:"Connect operational transactions to configurable accounting, banking, tax and management reporting with clear reconciliation and audit trails.",
+ prospects:["Owner / CFO","Financial Controller / Accountant","Multi-company / Operations Head"],
+ problem:"Sales, purchases, inventory, banking and tax data are disconnected; management waits for spreadsheets and reconciliations to understand cash and profitability.",
+ impact:["Slow close","Overdue receivables","Cash surprises","Stock and accounting mismatch","Compliance risk","Limited multi-company visibility"],
+ why:["Regional configuration","Integration with Infooware operations products","Configurable workflows","Management analytics beyond statutory books"],
+ kpis:[K("Days to close","20–40% reduction",30),K("Open reconciliation items","20–50% reduction",35),K("Overdue receivables","5–15% reduction",10),K("Reporting lag","30–60% reduction",45)],
+ formula:"Working-capital value = monthly credit sales × DSO improvement ÷ days in month",
+ calc:{i:[["Monthly credit sales",5000000,$m],["DSO improvement (days)",6,$n],["Days in month",30,$n]],f:v=>v[0]*v[1]/(v[2]||30),out:"Cash released from receivables",once:true},
+ pitch:"Infooware connects source documents, approvals, postings and settlements. Control totals and exception queues shorten reconciliation and audit preparation.",
+ pilot:"Paid Finance Process & Reconciliation diagnostic",pilotScope:"One sanitized month of your data.",days:30,
+ steps:[["Capture source","Invoice, payment, stock or payroll"],["Approve and post","Configured rules and evidence"],["Match","Bank, settlement and source control"],["Resolve exceptions","Owner, reason and correction"],["Report","Cash, margin and financial statements"]],
+ integ:["Bank / Netcash","POS","Payroll","Ecommerce","CRM","Inventory","Tax exports","Power BI"],
+ rel:["retail-pos","payroll-hrms","crm-pipeline"]},
+{slug:"fleet",name:"Fleet Intelligence OS",short:"Fleet Intelligence",sector:"Fleet",regions:["India","Middle East","Africa"],reg:["India","ME","Africa"],fam:"ops",icon:"fleet",
+ tag:"Vehicle data that exposes fuel and downtime leakage",
+ value:"Combine vehicle, driver, trip, fuel, maintenance and financial records to rank leakage, predict risk and trigger accountable action.",
+ prospects:["Fleet Director / Operations Head","CFO / Procurement Head","Dispatcher / Fleet Supervisor"],
+ problem:"GPS, fuel, maintenance, jobs and finance data are separate; teams react to breakdowns and investigate fuel leakage after costs are incurred.",
+ impact:["Fuel loss","Unplanned downtime","Rising cost per km","Missed service","Poor driver accountability","Inefficient routes and assets"],
+ why:["A business-outcome layer over telematics","Configurable rules plus AI models","Full cost and maintenance context","Action workflow with named owners"],
+ kpis:[K("Fuel variance","5–12% reduction",9),K("Downtime","10–20% reduction",15),K("Maintenance compliance","15–30% improvement",23),K("Cost per kilometre","5–10% reduction",8)],
+ formula:"Verified saving = fuel variance removed + avoided downtime contribution + maintenance cost avoided",
+ calc:{i:[["Monthly fuel spend",2000000,$m],["Fuel variance removed",9,$p],["Downtime vehicle-days per month",60,$n],["Contribution per vehicle-day",6000,$m],["Downtime reduction",15,$p],["Maintenance cost avoided per month",40000,$m]],f:v=>v[0]*v[1]/100+v[2]*v[3]*v[4]/100+v[5],out:"Verified saving"},
+ pitch:"Infooware normalizes fuel, repair, tyre, toll and downtime cost by vehicle, route and job, revealing leakage and replacement decisions.",
+ pilot:"30-day Fleet Leakage Diagnostic",pilotScope:"Up to 50 vehicles.",days:30,
+ steps:[["Ingest","Trips, GPS, fuel and jobs"],["Compare","Expected use versus actual cost"],["Rank exceptions","Vehicle, driver and route"],["Assign action","Inspect, approve or service"],["Verify result","Cost, uptime and recurrence"]],
+ integ:["GPS / telematics","Fuel sensors and cards","Maps","Workshop and vendors","Accounting","Mobile driver app"],
+ rel:["construction","territory-revenue","compliance-audit"]},
+{slug:"construction",name:"Construction Operations OS",short:"Construction Operations",sector:"Construction",regions:["Africa","Middle East"],reg:["Africa","ME","India"],fam:"ops",icon:"build",
+ tag:"Project margin risk becomes visible before month end",
+ value:"Connect site activity to procurement, inventory, workforce and finance so project leaders act on committed cost and exceptions before month-end.",
+ prospects:["CEO / CFO","Project Manager","Procurement / Site Stores Head"],
+ problem:"Project budgets, committed costs, purchases, materials, fuel and site labour are updated at different times, so margin leakage appears too late.",
+ impact:["Budget overrun","Duplicate or unapproved purchase","Material loss","Fuel misuse","Delayed approvals","Weak project cash visibility"],
+ why:["Field-to-finance workflow","Mobile and offline site capture","Configurable approval limits","Integrated fleet, payroll and document control"],
+ kpis:[K("Approval cycle","20–40% reduction",30),K("Cost leakage","5–12% reduction",9),K("Material variance","10–20% reduction",15),K("Cost visibility","20–40% improvement",30)],
+ formula:"Margin protected = avoidable purchase, material and fuel variance identified before commitment",
+ calc:{i:[["Monthly purchase, material and fuel spend",10000000,$m],["Current avoidable variance",6,$p],["Share identified before commitment",40,$p]],f:v=>v[0]*v[1]/100*v[2]/100,out:"Margin protected"},
+ pitch:"Infooware routes requisitions and approvals by project, value and urgency, tracks material receipt and issue, and shows the project manager open blockers and budget impact.",
+ pilot:"30–45 day Project Cost Leakage pilot",pilotScope:"One active project.",days:45,
+ steps:[["Plan","Budget, WBS and cost centre"],["Request","Site requisition and urgency"],["Approve and buy","Limit, supplier and commitment"],["Receive and use","Material, fuel and labour evidence"],["Control margin","Variance and forecast at completion"]],
+ integ:["Accounting / ERP","Biometric","Fleet and fuel","Document repository","Supplier portal","Payments"],
+ rel:["fleet","payroll-hrms","accounting-finance"]},
+{slug:"property",name:"Property & Community Management",short:"Property Management",sector:"Real Estate",regions:["India","Middle East","Africa"],reg:["India","ME","Africa"],fam:"ops",icon:"property",
+ tag:"One accountable record for service and collections",
+ value:"Connect builder, property manager, landlord, tenant and service teams through role-based applications and one property record.",
+ prospects:["Builder / Developer Customer Experience Head","Facility / Community Manager","Property Owner / Finance Committee"],
+ problem:"Unit, owner, tenant, dues, visitor, service and document records are fragmented across spreadsheets, calls and consumer messaging groups.",
+ impact:["Slow issue resolution","Missed dues","Weak resident experience","Poor handover","Limited portfolio visibility","Document risk"],
+ why:["Configurable across developer handover, rental and community operations","Mobile-first for residents, staff and vendors","Payments and accounting integration","SLA, recurrence and vendor performance in one view"],
+ kpis:[K("Resolution time","20–40% reduction",30),K("Overdue dues","5–15% reduction",10),K("Repeat issues","10–25% reduction",18),K("Status calls","30–60% reduction",45)],
+ formula:"Collection gain = overdue dues × recovery improvement + staff hours saved from fewer status calls",
+ calc:{i:[["Overdue dues outstanding",1500000,$m],["Recovery improvement",10,$p],["Status calls per month",600,$n],["Minutes per call",6,$n],["Status-call reduction",45,$p],["Staff cost per hour",300,$m]],f:v=>v[0]*v[1]/100+v[2]*v[4]/100*v[3]/60*v[5],out:"Collection gain and staff time saved"},
+ pitch:"Infooware centralizes requests, categorizes and routes work, records evidence and exposes SLA, recurrence and vendor performance.",
+ pilot:"30-day Property Service & Collections pilot",pilotScope:"One property or community.",days:30,
+ steps:[["Receive request","Portal, app or WhatsApp"],["Classify","Property, category and SLA"],["Assign work","Team or vendor"],["Verify evidence","Resident or manager review"],["Measure","Closure, recurrence and collection"]],
+ integ:["Payments","Accounting","Access control","Email / WhatsApp","Document storage","Facility vendors"],
+ rel:["whatsapp-crm","accounting-finance","compliance-audit"]},
+{slug:"skill-lms",name:"Skill Intelligence & LMS",short:"Skill Intelligence and LMS",sector:"Learning",regions:["India","Africa","Middle East","US"],reg:["India","Africa","ME","US"],fam:"cap",icon:"learn",
+ tag:"Training evidence that reflects job readiness",
+ value:"Map roles to skills, diagnose gaps, assign targeted learning and practice, and measure readiness through assessments and AI voice or text simulations.",
+ prospects:["CHRO / L&D Head","School / Training Provider Leader","Sales / Service Operations Head"],
+ problem:"Organizations track course completion but cannot prove role capability, practice quality or readiness for real work.",
+ impact:["Training spend without performance change","Slow onboarding","Inconsistent service and sales","Certification failure","Manager uncertainty"],
+ why:["A capability and performance layer, not only content delivery","Role-based intelligence","AI practice with rubric and human review","Clear intervention priorities for managers and teachers"],
+ kpis:[K("Time to readiness","15–30% reduction",23),K("Assessment score","10–25% improvement",18),K("Practice completion","20–40% improvement",30),K("Coaching effort","10–25% reduction",18)],
+ formula:"Readiness value = earlier productive days × contribution per role + avoided repeat training cost",
+ calc:{i:[["New joiners per month",20,$n],["Earlier productive days per joiner",10,$n],["Contribution per productive day",2000,$m],["Avoided repeat training cost per month",50000,$m]],f:v=>v[0]*v[1]*v[2]+v[3],out:"Readiness value"},
+ pitch:"Infooware combines content, assessment and guided practice into personalized learning paths, while managers and teachers see gaps and intervention priorities.",
+ pilot:"30-day Skill Gap & AI Practice pilot",pilotScope:"One critical role.",days:30,
+ steps:[["Define role","Skills and observable behaviours"],["Diagnose","Assessment and manager evidence"],["Assign path","Content and focused practice"],["Simulate","Voice or text scenario with rubric"],["Confirm readiness","Improvement and job evidence"]],
+ integ:["HRMS","SSO","SCORM / video","CRM / field sales","Knowledge base / RAG","Conferencing"],
+ rel:["territory-revenue","healthcare","payroll-hrms"]},
+{slug:"ecommerce-intelligence",name:"Ecommerce & Marketplace Intelligence",short:"Ecommerce Intelligence",sector:"Ecommerce",regions:["India","Middle East","US"],reg:["India","ME","US"],fam:"rev",icon:"ecom",
+ tag:"Cross-channel data that leads to profitable action",
+ value:"Unify cross-channel commerce data into alerts, comparisons and action workflows for assortment, price, stock, promotion and operations.",
+ prospects:["Brand / Ecommerce Director","Marketplace / Category Manager","CFO / Commercial Head"],
+ problem:"Sales, price, inventory, promotion and catalogue data are split across Amazon, Myntra, Noon, Namshi, Shopify, WooCommerce and spreadsheets.",
+ impact:["Stock-outs and oversell","Slow price response","Unclear promotion ROI","Catalogue errors","Fragmented profitability","Manual reporting"],
+ why:["Operational intelligence across owned and marketplace channels","Configurable metrics","AI anomaly and recommendation layer","Workflow and action tracking to resolution"],
+ kpis:[K("Stock-out days","10–25% reduction",18),K("Promotion return","5–15% improvement",10),K("Reporting time","40–70% reduction",55),K("Margin leakage","3–8% reduction",6)],
+ formula:"Recovered contribution = stock-out sales recovered + price or promotion margin improvement − incremental channel cost",
+ calc:{i:[["Monthly cross-channel revenue",10000000,$m],["Revenue lost to stock-outs",4,$p],["Stock-out reduction",18,$p],["Contribution margin",30,$p],["Monthly promotion spend",800000,$m],["Promotion return improvement",10,$p],["Incremental channel cost",25000,$m]],f:v=>v[0]*v[1]/100*v[2]/100*v[3]/100+v[4]*v[5]/100-v[6],out:"Recovered contribution"},
+ pitch:"Infooware prioritizes price, stock, catalogue and performance exceptions and tracks the action owner through resolution.",
+ pilot:"30-day Cross-channel Revenue Leakage diagnostic",pilotScope:"One brand or category.",days:30,
+ steps:[["Collect channels","Sales, price, stock and fees"],["Reconcile","SKU, time and settlement alignment"],["Detect exceptions","Stock, price, catalogue or margin"],["Assign action","Owner, due date and decision"],["Measure outcome","Revenue, margin and resolution"]],
+ integ:["Marketplace APIs and feeds","Shopify","WooCommerce","ERP / PIM / WMS","Advertising","BI"],
+ rel:["hyperlocal-marketplace","retail-pos","whatsapp-crm"]}
+];
+const BY=Object.fromEntries(P.map(p=>[p.slug,p]));
+const ORDER=["rev","trust","ops","cap"];
+
+/* ---------- Helpers ---------- */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const initials=s=>s.split(/[\s/]+/).filter(w=>/^[A-Z]/.test(w)).slice(0,2).map(w=>w[0]).join("");
+function waBtn(txt,label,cls){return `<a class="btn ${cls||"btn-wa"}" href="${wa(txt)}" target="_blank" rel="noopener">${IC.wa}${label}</a>`}
+const dirIc=k=>k.dir==="down"?`<span class="dn">${IC.down}</span>`:`<span class="upc">${IC.up}</span>`;
+
+/* currency */
+const CUR={INR:{r:1,loc:"en-IN"},USD:{r:1/88,loc:"en-US"},AED:{r:1/24,loc:"en-AE"},ZAR:{r:1/5,loc:"en-ZA"}};
+let cur="INR";
+try{const c=localStorage.getItem("iw-cur");if(c&&CUR[c])cur=c}catch(e){}
+function money(v){if(cur==="INR"){const a=Math.abs(v);if(a>=1e7)return "₹"+(v/1e7).toFixed(a>=1e9?0:2).replace(/\.?0+$/,"")+" crore";if(a>=1e5)return "₹"+(v/1e5).toFixed(1).replace(/\.0$/,"")+" lakh";return "₹"+Math.round(v).toLocaleString("en-IN")}try{return new Intl.NumberFormat(CUR[cur].loc,{style:"currency",currency:cur,notation:"compact",maximumFractionDigits:1}).format(v)}catch(e){return cur+" "+Math.round(v).toLocaleString()}}
+
+/* ---------- Shell ---------- */
+document.getElementById("logoHdr").innerHTML=logo();
+document.getElementById("logoFtr").innerHTML=logo();
+document.querySelectorAll(".waI").forEach(e=>e.outerHTML=IC.wa);
+document.querySelectorAll(".phI").forEach(e=>e.outerHTML=IC.phone);
+document.querySelectorAll(".mlI").forEach(e=>e.outerHTML=IC.mail);
+function bindWa(root){(root||document).querySelectorAll("[data-wa]").forEach(a=>{a.href=wa(a.dataset.wa)})}
+bindWa();
+
+document.getElementById("megaIn").innerHTML=ORDER.map(f=>`<div><h4>${FAM[f].t}</h4>${P.filter(p=>p.fam===f).map(p=>`<a href="#/solutions/${p.slug}">${IC[p.icon]}${esc(p.short)}</a>`).join("")}</div>`).join("");
+document.getElementById("ft1").innerHTML=`<h4>Solutions</h4>`+P.slice(0,8).map(p=>`<a href="#/solutions/${p.slug}">${esc(p.short)}</a>`).join("");
+document.getElementById("ft2").innerHTML=`<h4>&nbsp;</h4>`+P.slice(8).map(p=>`<a href="#/solutions/${p.slug}">${esc(p.short)}</a>`).join("");
+
+const mega=document.getElementById("mega"),solBtn=document.getElementById("solBtn"),nav=document.getElementById("nav"),burger=document.getElementById("burger");
+function closeMenus(){mega.classList.remove("open");solBtn.setAttribute("aria-expanded","false");nav.classList.remove("open");burger.setAttribute("aria-expanded","false")}
+solBtn.onclick=e=>{e.stopPropagation();const o=!mega.classList.contains("open");mega.classList.toggle("open",o);solBtn.setAttribute("aria-expanded",o)};
+burger.onclick=e=>{e.stopPropagation();const o=!nav.classList.contains("open");nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o)};
+document.addEventListener("click",e=>{if(!e.target.closest(".mega")&&!e.target.closest("#solBtn"))mega.classList.remove("open")});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenus()});
+mega.addEventListener("click",e=>{if(e.target.closest("a"))closeMenus()});
+nav.addEventListener("click",e=>{const a=e.target.closest("a");if(!a)return;if(a.dataset.sec){e.preventDefault();closeMenus();goSec(a.dataset.sec)}else if(!a.dataset.wa)closeMenus()});
+document.querySelector("footer").addEventListener("click",e=>{const a=e.target.closest("a[data-sec]");if(a){e.preventDefault();goSec(a.dataset.sec)}});
+function goSec(id){if(location.hash!=="#/"&&location.hash!==""){pendingSec=id;location.hash="#/"}else{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth"})}}
+let pendingSec=null;
+
+/* theme */
+const themeBtn=document.getElementById("themeBtn");
+function isDark(){const t=document.documentElement.dataset.theme;return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function paintTheme(){themeBtn.innerHTML=isDark()?IC.sun:IC.moon}
+try{const t=localStorage.getItem("iw-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+paintTheme();
+themeBtn.onclick=()=>{const n=isDark()?"light":"dark";document.documentElement.dataset.theme=n;try{localStorage.setItem("iw-theme",n)}catch(e){}paintTheme()};
+
+/* ---------- Pages ---------- */
+const main=document.getElementById("main");
+
+function home(){
+ const lead=P.map(p=>{const k=p.kpis.reduce((a,b)=>b.m>a.m?b:a);return {p,k}});
+ return `
+<section class="hero"><div class="wrap">
+ <div class="hero-in">
+  <h1>Operating truth, turned into measured action.</h1>
+  <p class="lead">Fifteen Infooware solutions that expose leakage, backlog and missed follow-up in your daily operations, then fix it with software, AI agents and named experts. Every engagement starts with a fixed-scope pilot against your own baseline.</p>
+  <div class="ctas"><a class="btn btn-gold" href="#/" data-sec-h="solutions">Explore the 15 solutions</a>${waBtn("Hello Infooware, I would like to book a discovery call.","Book a discovery call","btn-ghost")}</div>
+  <div class="facts"><span><b>15</b>packaged solutions</span><span><b>4</b>regions served</span><span><b>30–90</b>days to first evidence</span></div>
+ </div>
+ <div class="sun" aria-hidden="true">${bigSun()}</div>
+</div></section>
+
+<section class="s" id="solutions"><div class="wrap">
+ <div class="sh"><span class="kick">Solution portfolio</span><h2>Fifteen offers, organised around the outcome you need.</h2><p>Each solution runs on one shared Infooware platform, so a second product in the same account reuses identity, workflows, data and dashboards.</p></div>
+ <div class="fam">${ORDER.map(f=>`<div><h3>${FAM[f].t}</h3><p class="fd">${FAM[f].d}</p>${P.filter(p=>p.fam===f).map(p=>`<a class="plink" href="#/solutions/${p.slug}"><span class="ic">${IC[p.icon]}</span><span><b>${esc(p.short)}</b><span>${esc(p.tag)}</span></span></a>`).join("")}</div>`).join("")}</div>
+</div></section>
+
+<section class="s alt" id="method"><div class="wrap">
+ <div class="sh"><span class="kick">How a pilot works</span><h2>Evidence before commitment.</h2><p>No pilot starts without a baseline, a named business owner and one agreed decision metric. You decide to roll out, revise scope or stop, based on what moved.</p></div>
+ <div class="steps">
+  ${[["Quantify the problem","We use sanitized records to expose leakage, backlog, coverage gaps or follow-up failure."],["Show the changed workflow","One daily job, the people involved and the next action, in your own language."],["Agree pilot measures","Baseline, target, owner, review frequency and economic value, written down."],["Offer fixed scope","Data, users, integrations, duration, fee and explicit exclusions."],["Make the decision","Roll out, revise scope or stop, on the date agreed at the start."]].map((s,i)=>`<div class="step"><div class="n">${i+1}</div><h4>${s[0]}</h4><p>${s[1]}</p></div>`).join("")}
+ </div>
+</div></section>
+
+<section class="s" id="targets"><div class="wrap">
+ <div class="sh"><span class="kick">Pilot KPI targets</span><h2>The headline movement each solution is built to deliver.</h2><p>The strongest pilot KPI for every solution, shown as its target range with the planning midpoint. Select any row for the full business case.</p></div>
+ <div class="pchart" role="list">
+  ${lead.map(({p,k})=>`<a class="prow" role="listitem" href="#/solutions/${p.slug}"><div class="pl">${esc(p.short)}<small>${esc(k.n)} ${k.dir==="down"?"reduction":"improvement"}</small></div><div class="ptrack"><span class="pband" style="left:${k.lo/80*100}%;width:${(k.hi-k.lo)/80*100}%"></span><span class="pmid" style="left:${k.m/80*100}%"></span></div><div class="pv">${k.m}%</div></a>`).join("")}
+  <div class="paxis"><div></div><div><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span></div><div></div></div>
+ </div>
+ <p class="disc">Illustrative pilot targets. Each is confirmed against the customer's own baseline and metric definition before a pilot begins.</p>
+</div></section>
+
+<section class="s alt" id="platform"><div class="wrap two" style="align-items:center">
+ <div class="sh" style="margin:0"><span class="kick">One platform underneath</span><h2>Software, agentic AI and named experts, priced on outcomes.</h2><p>Partners and customers configure vertical workflows and integrations without rebuilding the platform for each account. Four reusable agent patterns run across every product: Sense and Capture, Decide and Act, Verify and Escalate, Learn and Improve.</p><p>Clients across our history include teams at Adani, Airbus, Pfizer, Ford and Indian Railways.</p></div>
+ <div class="layers">
+  <div class="layer"><b>Customer channels</b><span>Web portals, mobile apps, WhatsApp, field devices and partner-branded entry points</span></div>
+  <div class="layer"><b>Operational workflows</b><span>Leads, appointments, visits, orders, inspections, approvals, evidence, cases and learning</span></div>
+  <div class="layer"><b>Intelligence layer</b><span>Dashboards, rules, scores, forecasting, RAG, agents, alerts and human approval</span></div>
+  <div class="layer"><b>Integration layer</b><span>ERP, EHR, POS, accounting, ecommerce, maps, payments, email, identity and APIs</span></div>
+  <div class="layer"><b>Trust foundation</b><span>Multi-tenant security, role access, audit logs, data quality, backup and observability</span></div>
+ </div>
+</div></section>
+
+<section class="s" id="regions"><div class="wrap">
+ <div class="sh"><span class="kick">Regions</span><h2>Entry offers calibrated to each market.</h2><p>Start with a diagnostic, deploy a fixed-scope pilot, and expand only after measured results.</p></div>
+ <div class="regions">
+  ${[["India","Low-friction pilots, local relationships and vertical offers. Communication in Gujarati, Hindi and English.",["healthcare","whatsapp-crm","territory-revenue","compliance-audit","payroll-hrms"]],["ME","Bilingual Arabic and English workflows, polished delivery and integration depth for higher-value accounts.",["whatsapp-crm","fleet","territory-revenue","compliance-audit","payroll-hrms"]],["Africa","Offline capability, practical workflows and local delivery partners for high-cost visibility gaps.",["territory-revenue","retail-pos","payroll-hrms","construction","fleet"]]].map(([r,d,pl])=>`<div class="region"><h3>${REG[r].name}</h3><p class="rl">${d}</p>${REG[r].tiers.map(t=>`<div class="tier"><b>${t[0]}</b><span>${t[1]}</span></div>`).join("")}<div class="plays">${pl.map(s=>`<a class="chip" href="#/solutions/${s}">${esc(BY[s].short)}</a>`).join("")}</div></div>`).join("")}
+ </div>
+ <p class="fine">Illustrative entry pricing, excluding taxes. Final pricing depends on product, users, message usage, integrations, implementation and support.</p>
+</div></section>
+
+<section class="s alt" id="partners"><div class="wrap">
+ <div class="sh"><span class="kick">Partner program</span><h2>Grow recurring software revenue without building a product team.</h2><p>Partners open the right doors and stay close to the customer. Infooware provides the software foundation and specialist delivery depth. Accounts expand only after agreed KPIs move.</p></div>
+ <div class="tbl"><table>
+  <thead><tr><th>Model</th><th>Partner role</th><th>Infooware role</th><th>Partner economics</th><th>Commitment</th></tr></thead>
+  <tbody>
+   ${[["Referral","Introduces and helps qualify","Contracts and delivers","Referral fee after collection",1],["Reseller","Sells in an agreed territory or segment","Joint solutioning and delivery","Recurring margin plus services",2],["Implementation","Delivers approved scope","Sources or supports the deal","Implementation and support revenue",2],["Strategic co-sell","Plans named accounts and campaigns together","Joint governance and delivery plan","Shared margin and expansion plan",3]].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td><span class="lvl" aria-label="${["","Low","Medium","High"][r[4]]}">${[1,2,3].map(i=>`<i class="${i<=r[4]?"on":""}"></i>`).join("")}</span></td></tr>`).join("")}
+  </tbody></table></div>
+ <div class="gap"></div>
+ <div class="band"><div><h2>Bring Infooware to your market.</h2><p>Tell us your region, sector and customer base. We will select two solution packs with you and plan the first 20 target accounts.</p></div><div class="ctas">${waBtn("Hello Infooware, I am interested in the partner program.","Discuss partnership","btn-wa")}<a class="btn btn-ghost" href="#/contact">Send an enquiry</a></div></div>
+</div></section>`;
+}
+
+function bigSun(){
+ const rays=Array.from({length:72},(_,i)=>{const a=i*5*Math.PI/180,r1=150,r2=i%3===0?196:i%3===1?178:168;return `<line x1="${200+r1*Math.cos(a)}" y1="${200+r1*Math.sin(a)}" x2="${200+r2*Math.cos(a)}" y2="${200+r2*Math.sin(a)}"/>`}).join("");
+ return `<svg viewBox="0 0 400 400"><g class="rays" stroke="#B8924F" stroke-width="2.2" stroke-linecap="round" opacity=".75">${rays}</g><circle cx="200" cy="200" r="138" fill="#F5F8FA"/><circle cx="200" cy="200" r="138" fill="none" stroke="#B8924F" stroke-width="1" opacity=".5"/><path d="M200 108c22 25 27 47 0 80-27-33-22-55 0-80z" fill="none" stroke="#168C8C" stroke-width="7"/><circle cx="200" cy="152" r="9" fill="#168C8C"/><path d="M108 196c38 3 66 19 88 60M292 196c-38 3-66 19-88 60" fill="none" stroke="#168C8C" stroke-width="12" stroke-linecap="round"/></svg>`;
+}
+
+function head(p,tab){
+ const idx=P.indexOf(p);
+ return `<section class="phead"><div class="wrap">
+ <div class="crumb"><a href="#/">Home</a> / <a href="#/" data-sec-h="solutions">Solutions</a> / ${esc(p.short)}</div>
+ <div class="pgrid">
+  <div>
+   <div class="ptitle"><span class="ic">${IC[p.icon]}</span><div><h1>${esc(p.name)}</h1><div class="meta"><span class="chip">${esc(p.sector)}</span>${p.regions.map(r=>`<span class="chip">${esc(r)}</span>`).join("")}</div></div></div>
+   <p class="tagline">${esc(p.tag)}</p>
+   <p class="vp">${esc(p.value)}</p>
+   <div class="ctas">${waBtn(`Hello Infooware, I would like to discuss the ${p.pilot} for ${p.name}.`,"Discuss a pilot on WhatsApp")}${tab==="overview"?`<a class="btn btn-ghost" href="#/solutions/${p.slug}/proof">See proof and diagrams</a>`:`<a class="btn btn-ghost" href="#/solutions/${p.slug}">Back to the business case</a>`}</div>
+  </div>
+  <div>
+   <div class="kmini">${p.kpis.map(k=>`<div class="km"><div class="v">${k.dir==="down"?IC.down:IC.up}${k.lo}–${k.hi}%</div><div class="l">${esc(k.n)}</div><div class="d">${k.dir==="down"?"reduction":"improvement"} target</div></div>`).join("")}</div>
+   <p class="kcap">Pilot KPI targets, confirmed against your baseline.</p>
+  </div>
+ </div>
+ <nav class="tabs" aria-label="${esc(p.short)} pages"><a href="#/solutions/${p.slug}" class="${tab==="overview"?"on":""}" ${tab==="overview"?'aria-current="page"':""}>Business case</a><a href="#/solutions/${p.slug}/proof" class="${tab==="proof"?"on":""}" ${tab==="proof"?'aria-current="page"':""}>Proof and diagrams</a></nav>
+ </div></section>`;
+}
+
+function prevNext(p,suffix){
+ const i=P.indexOf(p),a=P[(i+P.length-1)%P.length],b=P[(i+1)%P.length];
+ return `<div class="pn"><a href="#/solutions/${a.slug}${suffix}"><small>Previous solution</small><b>${esc(a.short)}</b></a><a href="#/solutions/${b.slug}${suffix}"><small>Next solution</small><b>${esc(b.short)}</b></a></div>`;
+}
+
+function overview(p){
+ return head(p,"overview")+`
+<section class="s"><div class="wrap">
+ <div class="two">
+  <div class="box problem"><h3>The problem today</h3><p>${esc(p.problem)}</p></div>
+  <div class="box impact"><h3>What it costs the business</h3><div class="impacts">${p.impact.map(i=>`<span>${esc(i)}</span>`).join("")}</div></div>
+ </div>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+ <div class="sh"><h2>Who we pitch this to</h2><p>The three roles that feel this problem and own the decision.</p></div>
+ <div class="three">${p.prospects.map(r=>`<div class="prospect"><span class="av">${initials(r)}</span><div><b>${esc(r)}</b><span>${esc(p.sector)} buyer</span></div></div>`).join("")}</div>
+ <div class="gap" style="height:44px"></div>
+ <div class="sh"><h2>Why Infooware</h2></div>
+ <div class="adv">${p.why.map(w=>`<div>${IC.check}<b>${esc(w)}</b></div>`).join("")}</div>
+</div></section>
+
+<section class="s"><div class="wrap">
+ <div class="sh"><h2>Pilot KPI targets</h2><p>What we agree to move during the pilot. Arrows show whether the target is a reduction or an improvement.</p></div>
+ <div class="kpis">${p.kpis.map(k=>`<div class="kpi"><div class="kn">${esc(k.n)}</div><div class="kr ${k.dir==="down"?"dn":"upc"}">${k.dir==="down"?IC.down:IC.up}${k.lo}–${k.hi}%</div><div class="kd">${k.dir==="down"?"Reduction":"Improvement"}, planning midpoint ${k.m}%</div><div class="kbar"><i style="left:${k.lo}%;width:${k.hi-k.lo}%;background:color-mix(in srgb,${k.dir==="down"?"var(--down)":"var(--up)"} 45%,transparent)"></i><i style="left:calc(${k.m}% - 2px);width:4px;background:${k.dir==="down"?"var(--down)":"var(--up)"}"></i></div></div>`).join("")}</div>
+ <p class="disc">Illustrative pilot targets, not published performance claims. Each is validated against your baseline before external use.</p>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+ <div class="sh"><h2>Savings and growth logic</h2><p>Put your own numbers in. The sample values are placeholders to show the shape of the business case.</p></div>
+ ${calcHTML(p)}
+</div></section>
+
+<section class="s"><div class="wrap">
+ <div class="sh"><h2>The pitch</h2></div>
+ <div class="pitch">${IC.quote}<p>${esc(p.pitch)}</p></div>
+ <div class="gap" style="height:52px"></div>
+ <div class="sh"><h2>Growth path</h2><p>Accounts expand only after adoption and KPI evidence.</p></div>
+ <div class="path">
+  <div><div class="stg">Stage 1, days 0–${p.days}</div><h4>Prove</h4><p>${esc(p.pilot)}. ${esc(p.pilotScope)} Baseline, owner and decision metric agreed up front.</p></div>
+  <div><div class="stg">Stage 2, after the gate</div><h4>Roll out</h4><p>More users, sites, workflows and analytics on a recurring subscription, with integrations and service levels as needed.</p></div>
+  <div><div class="stg">Stage 3, same customer</div><h4>Expand</h4><p>Reuse the platform, data and identity for adjacent problems in the same account.</p><div class="plays">${p.rel.map(s=>`<a class="chip" href="#/solutions/${s}">${esc(BY[s].short)}</a>`).join("")}</div></div>
+ </div>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+ ${offerHTML(p)}
+ <div class="gap" style="height:40px"></div>
+ ${prevNext(p,"")}
+</div></section>`;
+}
+
+function offerHTML(p){
+ const r=p.reg[0];
+ return `<div class="offer"><div class="ol"><span class="kick">Pilot offer</span><h3>${esc(p.pilot)}</h3><p>${esc(p.pilotScope)} Configured workflow, dashboard, training, support and a proof report at the end.</p><p class="muted" style="margin:0">Proceed when users adopt the workflow and the agreed KPI movement is visible against the baseline.</p><div class="ctas">${waBtn(`Hello Infooware, please share details of the ${p.pilot} (${p.name}).`,"Request this pilot")}<a class="btn btn-ghost" href="tel:+916359693055">${IC.phone}Call us</a></div></div>
+ <div class="or"><h4 style="margin-bottom:6px">Entry pricing, ${REG[r].name}</h4>${REG[r].tiers.map(t=>`<div class="tier"><b>${t[0]}</b><span>${t[1]}</span></div>`).join("")}<p class="fine" style="margin-top:10px">Illustrative, excluding taxes. Available in ${p.regions.join(", ")}.</p></div></div>`;
+}
+
+function calcHTML(p){
+ const c=p.calc,per=c.period||"month";
+ return `<div class="calc" data-calc="${p.slug}"><div class="ci">
+  <p class="formula">${esc(p.formula)}</p>
+  <div class="cur" role="group" aria-label="Currency">${Object.keys(CUR).map(k=>`<button type="button" data-cur="${k}" aria-pressed="${k===cur}">${k}</button>`).join("")}</div>
+  ${c.i.map((f,i)=>{const id=p.slug+"-f"+i,val=f[2]===$m?Math.round(f[1]*CUR[cur].r):f[1];return `<div class="field"><label for="${id}">${esc(f[0])}</label><div class="inp"><input id="${id}" type="number" inputmode="decimal" min="0" step="any" value="${val}" data-k="${f[2]}" data-i="${i}"><span class="u">${f[2]===$p?"%":f[2]===$m?cur:"#"}</span></div></div>`}).join("")}
+ </div><div class="co">
+  <div class="lbl">${esc(c.out)}${c.once?", one-time":" per "+per}</div>
+  <div class="big" data-out>–</div>
+  ${c.once?`<div class="lbl">Released cash can be redeployed each year the improvement holds.</div>`:`<div class="sep"></div><div class="lbl">Annualised${per==="season"?" (two seasons)":per==="cycle"?"":""}</div><div class="yr" data-yr>–</div>`}
+  <div class="note">A planning estimate for discussion. We replace these inputs with your baseline during discovery.</div>
+ </div></div>`;
+}
+function wireCalc(root,p){
+ const box=root.querySelector("[data-calc]");if(!box)return;
+ const ins=[...box.querySelectorAll("input")],out=box.querySelector("[data-out]"),yr=box.querySelector("[data-yr]");
+ const mult=p.calc.period==="season"?2:12;
+ function run(){const v=ins.map(i=>parseFloat(i.value)||0);const r=Math.max(0,p.calc.f(v));out.textContent=money(r);if(yr)yr.textContent=money(r*mult)}
+ ins.forEach(i=>i.addEventListener("input",run));
+ box.querySelectorAll("[data-cur]").forEach(b=>b.onclick=()=>{
+  const old=cur;cur=b.dataset.cur;try{localStorage.setItem("iw-cur",cur)}catch(e){}
+  ins.forEach(i=>{if(i.dataset.k===$m){const base=(parseFloat(i.value)||0)/CUR[old].r;i.value=Math.round(base*CUR[cur].r)}});
+  box.querySelectorAll(".u").forEach((u,j)=>{if(ins[j].dataset.k===$m)u.textContent=cur});
+  box.querySelectorAll("[data-cur]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.cur===cur));run()});
+ run();
+}
+
+/* ---------- Proof page ---------- */
+const AGENT=["Sense and Capture","Sense and Capture","Decide and Act","Verify and Escalate","Learn and Improve"];
+function proof(p){
+ const humanIdx=p.steps.findIndex(s=>/approv|verify|review|coach|manager|approve/i.test(s[0]+" "+s[1]));
+ return head(p,"proof")+`
+<section class="s"><div class="wrap">
+ <div class="sh"><h2>How the workflow changes daily decisions</h2><p>Five steps from raw operating data to a measured outcome. Tags show which reusable agent pattern handles each step; the gold step is where people keep the decision.</p></div>
+ <div class="flow">${p.steps.map((s,i)=>`<div class="fnode ${i===humanIdx?"hum":""}"><div class="fn">Step ${i+1}</div><h4>${esc(s[0])}</h4><p>${esc(s[1])}</p><span class="ag">${i===humanIdx?"Human decision":AGENT[i]}</span></div>`).join("")}</div>
+ <div class="loop">${IC.loop}Results from step 5 feed back into the next plan, so the workflow learns what moves the KPI.</div>
+</div></section>
+
+<section class="s alt"><div class="wrap two">
+ <div class="chartbox"><h3>Pilot KPI target ranges</h3><p class="cs">Band shows the target range; the marker is the planning midpoint.</p>${rangeChart(p)}<div class="legend"><span><i style="background:var(--down)"></i>Reduction</span><span><i style="background:var(--up)"></i>Improvement</span></div></div>
+ <div class="chartbox"><h3>Baseline versus pilot target</h3><p class="cs">Each KPI indexed to 100 at your baseline, with the midpoint target applied.</p>${indexChart(p)}<div class="legend"><span><i style="background:var(--line)"></i>Baseline (100)</span><span><i style="background:var(--teal)"></i>Target</span></div></div>
+</div></section>
+
+<section class="s"><div class="wrap">
+ <div class="sh"><h2>Software, agents and experts working together</h2><p>The SwaS stack behind ${esc(p.short)}: the platform records the work, agents run the repetitive steps, and named experts own judgment and outcomes.</p></div>
+ <div class="swas">
+  <div class="sl l1"><b>Named experts</b><span>Human layer</span></div>
+  <div class="sr2 one"><div class="agent"><b>${esc(p.steps[humanIdx>=0?humanIdx:3][0])}</b><span>${esc(p.steps[humanIdx>=0?humanIdx:3][1])}. Infooware specialists review the proof report with your ${esc(p.prospects[0].split(" / ")[0])} at each decision gate.</span></div></div>
+  <div class="sl l2"><b>Agentic AI</b><span>Four reusable patterns</span></div>
+  <div class="sr2">
+   <div class="agent"><b>Sense and Capture</b><span>${esc(p.steps[0][1])}; ${esc(p.steps[1][1].toLowerCase())}</span></div>
+   <div class="agent"><b>Decide and Act</b><span>${esc(p.steps[2][1])}</span></div>
+   <div class="agent"><b>Verify and Escalate</b><span>${esc(p.steps[3][1])}</span></div>
+   <div class="agent"><b>Learn and Improve</b><span>${esc(p.steps[4][1])}</span></div>
+  </div>
+  <div class="sl"><b>Platform</b><span>Software layer</span></div>
+  <div class="sr2">${p.why.map(w=>`<div class="agent"><span style="margin:0;color:var(--ink)">${esc(w)}</span></div>`).join("")}</div>
+ </div>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+ <div class="sh"><h2>Integration and coexistence</h2><p>${esc(p.short)} sits alongside the systems you already run. Nothing is ripped out for the pilot.</p></div>
+ ${hub(p)}
+</div></section>
+
+<section class="s"><div class="wrap">
+ <div class="chartbox"><h3>${esc(p.pilot)}</h3><p class="cs">${esc(p.pilotScope)} Indicative plan across ${p.days} days.</p>${gantt(p)}</div>
+ <div class="gate">
+  <div><b>Roll out</b><span>Users adopt the workflow and the agreed KPI movement is visible against the baseline.</span></div>
+  <div><b>Revise scope</b><span>Adoption is strong but KPI movement needs a changed workflow, data or user group.</span></div>
+  <div><b>Stop</b><span>The decision metric does not move. You keep the proof report and baseline findings.</span></div>
+ </div>
+ <div class="gap" style="height:44px"></div>
+ <div class="band"><div><h2>Run this pilot with your data.</h2><p>${esc(p.formula)}. We will fill it in with your baseline during a short discovery call.</p></div><div class="ctas">${waBtn(`Hello Infooware, I would like to run the ${p.pilot} (${p.name}).`,"Start on WhatsApp")}<a class="btn btn-ghost" href="#/solutions/${p.slug}">Open the calculator</a></div></div>
+ <div class="gap" style="height:40px"></div>
+ ${prevNext(p,"/proof")}
+</div></section>`;
+}
+
+function rangeChart(p){
+ const mx=Math.max(40,Math.ceil(Math.max(...p.kpis.map(k=>k.hi))/20)*20),x=v=>v/mx*100;
+ const ticks=Array.from({length:mx/20+1},(_,i)=>i*20);
+ return `<div class="rc" role="img" aria-label="KPI target ranges for ${esc(p.short)}">${p.kpis.map(k=>{const c=k.dir==="down"?"var(--down)":"var(--up)";return `<div class="rcr"><div class="rcl">${esc(k.n)}<b style="color:${c}">${k.m}%</b></div><div class="rct" style="--g:${20/mx*100}%"><i style="left:${x(k.lo)}%;width:${x(k.hi)-x(k.lo)}%;background:${c}"></i><s style="left:${x(k.m)}%;background:${c}"></s></div></div>`}).join("")}<div class="rca">${ticks.map(t=>`<span style="left:${x(t)}%">${t}%</span>`).join("")}</div></div>`;
+}
+function indexChart(p){
+ const mx=160;
+ return `<div class="ic2" role="img" aria-label="Baseline versus target index for ${esc(p.short)}"><div class="icg">${[150,100,50].map(t=>`<span style="bottom:${t/mx*100}%"><em>${t}</em></span>`).join("")}</div>${p.kpis.map(k=>{const t=k.dir==="down"?100-k.m:100+k.m;return `<div class="icc"><div class="icb"><i style="height:${100/mx*100}%"></i><i class="t" style="height:${t/mx*100}%"><em>${t}</em></i></div><div class="icl">${esc(k.n)}</div></div>`}).join("")}</div>`;
+}
+function hub(p){
+ const n=p.integ.length,pts=p.integ.map((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return {t,x:50+38*Math.cos(a),y:50+40*Math.sin(a)}});
+ return `<div class="hub"><svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${pts.map(q=>`<line x1="50" y1="50" x2="${q.x}" y2="${q.y}" stroke="var(--teal)" stroke-width=".35" stroke-dasharray="1.2 1" vector-effect="non-scaling-stroke" style="stroke-width:1.5px"/>`).join("")}</svg>
+ <div class="core"><div><b>${esc(p.short)}</b><small>Infooware platform</small></div></div>
+ ${pts.map(q=>`<div class="node" style="left:${q.x}%;top:${q.y}%">${esc(q.t)}</div>`).join("")}
+ <div class="hublist">${p.integ.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div>`;
+}
+function gantt(p){
+ const D=p.days,ph=[["Baseline and data",0,.15],["Configure workflow",.12,.35],["Go-live and adoption",.33,.75],["Measure KPIs",.55,.96],["Decision gate",.94,1]];
+ const ticks=D<=30?[0,7,14,21,30]:D<=45?[0,15,30,45]:[0,30,60,90];
+ return `<div class="gt" role="img" aria-label="Pilot plan across ${D} days">${ph.map((f,i)=>`<div class="gtr"><div class="gtl">${f[0]}<small>Day ${Math.round(f[1]*D)}–${Math.round(f[2]*D)}</small></div><div class="gtt"><i style="left:${f[1]*100}%;width:${Math.max(3,(f[2]-f[1])*100)}%;${i===4?"background:var(--gold)":"opacity:"+(.35+i*.16)}"></i></div></div>`).join("")}<div class="gta"><div></div><div>${ticks.map(t=>`<span style="left:${t/D*100}%">Day ${t}</span>`).join("")}</div></div></div>`;
+}
+
+/* ---------- Contact ---------- */
+function contact(){
+ return `<section class="phead"><div class="wrap" style="padding-bottom:44px"><div class="crumb"><a href="#/">Home</a> / Contact</div><h1 style="font-weight:400">Talk to Infooware.</h1><p class="vp" style="margin-top:14px">Tell us the problem you want to move. We reply on WhatsApp, by phone or in a scheduled call, usually within one working day.</p></div></section>
+<section class="s"><div class="wrap two" style="align-items:start">
+ <div class="box"><h3>Send an enquiry</h3><p class="muted">Your message opens in WhatsApp, ready to send to our team.</p>
+  <form class="cform" id="cform" novalidate>
+   <div><label for="c-name">Your name</label><input id="c-name" required autocomplete="name"></div>
+   <div><label for="c-co">Company</label><input id="c-co" autocomplete="organization"></div>
+   <div><label for="c-sol">Solution of interest</label><select id="c-sol"><option value="">Not sure yet</option>${P.map(p=>`<option>${esc(p.name)}</option>`).join("")}<option>Partner program</option></select></div>
+   <div><label for="c-reg">Region</label><select id="c-reg"><option>India</option><option>Middle East</option><option>Africa</option><option>United States</option><option>Other</option></select></div>
+   <div class="full"><label for="c-msg">What would you like to improve?</label><textarea id="c-msg" placeholder="For example: we miss 20% of follow-up appointments across two clinics."></textarea></div>
+   <div class="full"><button class="btn btn-wa" type="submit">${IC.wa}Send on WhatsApp</button> <span id="c-err" class="muted" role="alert" style="margin-left:10px;font-size:.9rem"></span></div>
+  </form></div>
+ <div class="reach">
+  <a href="${wa("Hello Infooware, I would like to discuss a solution for my business.")}" target="_blank" rel="noopener"><span class="ri" style="background:#1FAF5A;color:#fff">${IC.wa}</span><span><b>WhatsApp</b><span>+91 63596 93055, fastest response</span></span></a>
+  <a href="tel:+916359693055"><span class="ri" style="background:var(--teal);color:#fff">${IC.phone}</span><span><b>Call</b><span>+91 63596 93055</span></span></a>
+  <a href="#/" data-sec-h="partners"><span class="ri" style="background:var(--gold);color:#1B1408">${IC.pipeline}</span><span><b>Partner with us</b><span>Referral, reseller, implementation or co-sell</span></span></a>
+  <div class="box" style="padding:22px"><h4 style="margin-bottom:6px">Where we work</h4><p class="muted" style="margin:0">Headquartered in Ahmedabad, India, serving customers and partners across India, the Middle East, Africa and the United States.</p></div>
+ </div>
+</div></section>`;
+}
+function wireContact(){
+ const f=document.getElementById("cform");if(!f)return;
+ f.onsubmit=e=>{e.preventDefault();const n=document.getElementById("c-name").value.trim();const err=document.getElementById("c-err");
+  if(!n){err.textContent="Add your name so we know who to reply to.";document.getElementById("c-name").focus();return}err.textContent="";
+  const t=`Hello Infooware,\nName: ${n}\nCompany: ${document.getElementById("c-co").value.trim()||"-"}\nSolution: ${document.getElementById("c-sol").value||"Not sure yet"}\nRegion: ${document.getElementById("c-reg").value}\nMessage: ${document.getElementById("c-msg").value.trim()||"-"}`;
+  window.open(wa(t),"_blank","noopener")};
+}
+
+/* ---------- Router ---------- */
+function route(){
+ const h=location.hash.replace(/^#/,"")||"/";const m=h.match(/^\/solutions\/([a-z-]+)(\/proof)?/);
+ let html,p=null,title="Infooware Solutions | Truth to Action";
+ if(m&&BY[m[1]]){p=BY[m[1]];html=m[2]?proof(p):overview(p);title=`${p.name}${m[2]?" proof and diagrams":""} | Infooware`}
+ else if(h.startsWith("/contact")){html=contact();title="Contact | Infooware"}
+ else html=home();
+ main.innerHTML=html;document.title=title;closeMenus();
+ main.querySelectorAll("[data-sec-h]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();goSec(a.dataset.secH)}));
+ if(p&&!m[2])wireCalc(main,p);
+ wireContact();
+ if(pendingSec){const id=pendingSec;pendingSec=null;requestAnimationFrame(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView()})}
+ else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+route();
+})();
+</script>
+</body>
+</html>
